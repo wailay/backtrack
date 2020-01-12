@@ -3,6 +3,7 @@ import userService from './services/UserService';
 import LoginForm from './features/login/LoginForm';
 import Dash from './features/dash/Dash';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import CompanyDash from './features/company/Company';
 
 class App extends React.Component {
 
@@ -38,19 +39,23 @@ class App extends React.Component {
     var status = this.state.logged ? "True" : "False";
   return (
     <div>
-
+      
     <div>
     Track your job appplications
 </div>
 
 <Router>
+
+
   <div>
     <Switch>
 
       <Route exact path="/dash">
-        <div>
           <Dash />
-        </div>
+      </Route>
+
+      <Route exact path="/company">
+          <CompanyDash />
       </Route>
 
       <Route path="/">

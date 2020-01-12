@@ -1,11 +1,17 @@
-.container {
+.flex-container {
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
+    margin-left: 20px;
+    width: 100%;
     justify-content: flex-start;
+    align-items: baseline;
+    
+
 }
 
 .add-container {
+
     width: 150px;
     height: 140px;
     margin: 10px;

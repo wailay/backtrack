@@ -1,40 +1,107 @@
 .app-container {
     text-align: center;
-    background-color: green;
     color : rgb(0, 0, 0);
-    width: 150px;
-    height: 140px;
-    margin: 10px;
+    width: 200px;
+    
+    margin: 15px;
+    
     overflow: hidden;
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     transition: 1s;
-    
+    border-radius: 4px;
+    /* background-color: lightslategray; */
 
+
+    /* Prevent text selection highlight on all browsers */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+.app-header-container {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    justify-content: space-between;
 }
 
 .app-header {
-    /* border-top: 6px solid mediumvioletred; */
     
-    /*background-color: hsl(220, 12%, 95%);
-    transition: 0.3s; */
-    padding : 10px;
-    background-color: rgba(4, 4, 158, 0.377);
-    width: 100%;
-    
-    
+    margin : auto;
 }
 
 
 .app-body {
-    /* background-color: mediumturquoise;
-    padding-top :40px;
-    */
+        
+        width: 100%;
+        height: auto;
     
-    padding: 35px 0;
-    background-color: orangered;
+
+
+
+}
+        
+
+
+.body-location{
+    padding-top: 5px;
+    /* padding-bottom: 15px; */
+
+}
+
+.body-position {
+    padding-bottom: 15px;
+}
+
+.status-button-container{
+    display: flex;
     width: 100%;
     height: 100%;
-        
-    
+
+
 }
+.button-status {
+    
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  overflow: hidden;
+
+}
+
+.icon-down{
+    cursor: pointer;
+}
+
+.Ghosted-body {
+    background-color: lightgray;
+}
+
+
+.Rejected-body {
+
+    background-color: lightcoral;
+
+
+}
+
+.Offered-body {
+    background-color: lightskyblue;
+}
+
+.Pending-body {
+    background-color: lightsteelblue;
+}
+
+
+
+
+
+
+
 

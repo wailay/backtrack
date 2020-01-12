@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 class Dash extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             applications: [],
 
@@ -25,8 +25,9 @@ class Dash extends React.Component {
 
     }
 
+    
     handleCompanyClick(app) {
-        console.log("company click", app.company.url);
+        window.open(`https://${app.company.url}`, "_blank");        
     }
 
     handleAddCompany(){
@@ -38,18 +39,24 @@ class Dash extends React.Component {
    
 
     render() {
-        const {applications} = this.state;
+        const {applications, expanded} = this.state;
         const applicationDiv = applications.map((app) => 
             <AppCard key={app._id} application={app} onClick={() => this.handleCompanyClick(app)}/>
         ); 
         return (
-            <div className="container">
+            <div>
+                
+            <div className="flex-container">
+          
                 {applicationDiv}
                 <div className="add-container">
                     <FontAwesomeIcon className="action-button" icon={faPlusCircle} onClick={() => this.handleAddCompany()}/>
                 </div>
 
             </div>
+
+            </div>
+           
         );
     }
 
