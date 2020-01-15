@@ -43,6 +43,7 @@ router.post('/application/add', async(req, res, next) => {
     try{
         let _id = req.user;
         let application = req.body.app;
+        console.log(application);
 
         let user = await User.findByIdAndUpdate({ _id : _id}, {$push : {applications : application}}, {useFindAndModify : false});
         

@@ -1,14 +1,18 @@
 import React from 'react';
 import companyService from '../../services/CompanyService';
 import LoadingSpinner from '../../shared/LoadingSpinner';
-
+import CompanyCard from './CompanyCard';
+import AddCompanyDialog from './AddCompanyDialog';
+import './Company.css';
 class CompanyDash extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
             companies : [],
+            currentCompany : {},
             loading : true,
+            dialogOpen : false,
         }
     }
     componentDidMount(){
@@ -17,21 +21,67 @@ class CompanyDash extends React.Component {
                 companies : res.data,
                 loading : false,
             })
+        }).catch(err => {
+            console.log("error when fetching companies ", err);
+        })
+    }
+
+    componentWillUnmount(){
+        console.log('company dash unmounted');
+    }
+
+    handleSearch(event) {
+        console.log(event.target)
+    }
+
+    handleAddCompanyClick(company) {
+        this.setState({
+            dialogOpen : true,
+            currentCompany : company,
+        })
+    }
+
+    handleCompanyDialogClose = () => {
+        console.log("closing dialog");
+        this.setState({
+            dialogOpen : false,
         })
     }
     render(){
-        const {companies, loading} = this.state;
-        if(loading) return <div>Loading ....</div>
+        const {companies, loading, dialogOpen} = this.state;
+        
+        const companiesCard = companies.map(company => 
+                
+                <CompanyCard key={company._id} company={company} onClick={() => this.handleAddCompanyClick(company)}/>);
 
-        console.log(this.state.companies);
+        if(loading) return this.loadingSpinner();
+
+        
         return(
-
             <div>
-                <LoadingSpinner />        
+                <div className="search">
+                <form >
+                    <input type="text" placeholder="Search..." onChange={this.handleSearch}/>
+                </form>
+                </div>
+
+                <div className="companies-container">
+                {companiesCard}
+                
+                </div>
+                
+            <AddCompanyDialog open={dialogOpen} onClick={this.handleCompanyDialogClose} company={this.state.currentCompany} />
+                
             </div>
         );
     }
-
+    loadingSpinner(){
+        return(
+            <div className="centered">
+                <LoadingSpinner />
+            </div>
+        );
+    }
 }
 
 export default CompanyDash;

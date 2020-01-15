@@ -3,29 +3,31 @@
     flex-wrap: wrap;
     margin-top: 50px;
     margin-left: 20px;
-    width: 100%;
     justify-content: flex-start;
     align-items: baseline;
-    
 
 }
 
-.add-container {
 
-    width: 150px;
-    height: 140px;
-    margin: 10px;
-    text-align: center;
-    line-height: 140px;
+.add-container {
     
+    text-align: center;
+    
+
+    color : rgb(0, 0, 0);
+    width: 200px;
+    margin: 15px;
+
+
 }
 
 .action-button{
     transition: 0.5s;
-    font-size: 2em;
+    /* font-size: 1.5em; */
+    
 }
 .action-button:hover{
-    font-size: 2.1em;
+    font-size: 1.1em;
     color: salmon;
 
 }

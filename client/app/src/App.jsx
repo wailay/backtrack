@@ -2,9 +2,10 @@ import React from 'react';
 import userService from './services/UserService';
 import LoginForm from './features/login/LoginForm';
 import Dash from './features/dash/Dash';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CompanyDash from './features/company/Company';
-
+import Home from './features/home/Home';
+import AppNavBar from './features/app-bar/AppNavBar';
 class App extends React.Component {
 
   constructor(){
@@ -39,10 +40,10 @@ class App extends React.Component {
     var status = this.state.logged ? "True" : "False";
   return (
     <div>
-      
+      <AppNavBar />
     <div>
     Track your job appplications
-</div>
+    </div>
 
 <Router>
 
@@ -60,7 +61,7 @@ class App extends React.Component {
 
       <Route path="/">
         <div>
-          Home
+          <Home />
           <LoginForm />
     <button onClick={this.handleClick}> Logout </button>
 

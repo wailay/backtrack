@@ -1,0 +1,1244 @@
+[
+  {
+    "value": "Toronto, ON"
+  },
+  {
+    "value": "Montreal, QC"
+  },
+  {
+    "value": "Calgary, AB"
+  },
+  {
+    "value": "Ottawa, ON"
+  },
+  {
+    "value": "Edmonton, AB"
+  },
+  {
+    "value": "Mississauga, ON"
+  },
+  {
+    "value": "Winnipeg, MB"
+  },
+  {
+    "value": "Vancouver, BC"
+  },
+  {
+    "value": "Brampton, ON"
+  },
+  {
+    "value": "Hamilton, ON"
+  },
+  {
+    "value": "Quebec City, QC"
+  },
+  {
+    "value": "Surrey, BC"
+  },
+  {
+    "value": "Laval, QC"
+  },
+  {
+    "value": "Halifax, NS"
+  },
+  {
+    "value": "London, ON"
+  },
+  {
+    "value": "Markham, ON"
+  },
+  {
+    "value": "Vaughan, ON"
+  },
+  {
+    "value": "Gatineau, QC"
+  },
+  {
+    "value": "Saskatoon, SK"
+  },
+  {
+    "value": "Longueuil, QC"
+  },
+  {
+    "value": "Kitchener, ON"
+  },
+  {
+    "value": "Burnaby, BC"
+  },
+  {
+    "value": "Windsor, ON"
+  },
+  {
+    "value": "Regina, SK"
+  },
+  {
+    "value": "Richmond, BC"
+  },
+  {
+    "value": "Richmond Hill, ON"
+  },
+  {
+    "value": "Oakville, ON"
+  },
+  {
+    "value": "Burlington, ON"
+  },
+  {
+    "value": "Greater Sudbury, ON"
+  },
+  {
+    "value": "Sherbrooke, QC"
+  },
+  {
+    "value": "Oshawa, ON"
+  },
+  {
+    "value": "Saguenay, QC"
+  },
+  {
+    "value": "Lévis, QC"
+  },
+  {
+    "value": "Barrie, ON"
+  },
+  {
+    "value": "Abbotsford, BC"
+  },
+  {
+    "value": "Coquitlam, BC"
+  },
+  {
+    "value": "Trois-Rivières, QC"
+  },
+  {
+    "value": "St. Catharines, ON"
+  },
+  {
+    "value": "Guelph, ON"
+  },
+  {
+    "value": "Cambridge, ON"
+  },
+  {
+    "value": "Whitby, ON"
+  },
+  {
+    "value": "Kelowna, BC"
+  },
+  {
+    "value": "Kingston, ON"
+  },
+  {
+    "value": "Ajax, ON"
+  },
+  {
+    "value": "Langley, BC"
+  },
+  {
+    "value": "Saanich, BC"
+  },
+  {
+    "value": "Terrebonne, QC"
+  },
+  {
+    "value": "Milton, ON"
+  },
+  {
+    "value": "St. John's, NL"
+  },
+  {
+    "value": "Thunder Bay, ON"
+  },
+  {
+    "value": "Waterloo, ON"
+  },
+  {
+    "value": "Delta, BC"
+  },
+  {
+    "value": "Chatham-Kent, ON"
+  },
+  {
+    "value": "Red Deer, AB"
+  },
+  {
+    "value": "Strathcona County, AB"
+  },
+  {
+    "value": "Brantford, ON"
+  },
+  {
+    "value": "Saint-Jean-sur-Richelieu, QC"
+  },
+  {
+    "value": "Cape Breton, NS"
+  },
+  {
+    "value": "Lethbridge, AB"
+  },
+  {
+    "value": "Clarington, ON"
+  },
+  {
+    "value": "Pickering, ON"
+  },
+  {
+    "value": "Nanaimo, BC"
+  },
+  {
+    "value": "Kamloops, BC"
+  },
+  {
+    "value": "Niagara Falls, ON"
+  },
+  {
+    "value": "North Vancouver, BC"
+  },
+  {
+    "value": "Victoria, BC"
+  },
+  {
+    "value": "Brossard, QC"
+  },
+  {
+    "value": "Repentigny, QC"
+  },
+  {
+    "value": "Newmarket, ON"
+  },
+  {
+    "value": "Chilliwack, BC"
+  },
+  {
+    "value": "Maple Ridge, BC"
+  },
+  {
+    "value": "Peterborough, ON"
+  },
+  {
+    "value": "Kawartha Lakes, ON"
+  },
+  {
+    "value": "Drummondville, QC"
+  },
+  {
+    "value": "Saint-Jérôme, QC"
+  },
+  {
+    "value": "Prince George, BC"
+  },
+  {
+    "value": "Sault Ste. Marie, ON"
+  },
+  {
+    "value": "Moncton, NB"
+  },
+  {
+    "value": "Sarnia, ON"
+  },
+  {
+    "value": "Wood Buffalo, AB"
+  },
+  {
+    "value": "New Westminster, BC"
+  },
+  {
+    "value": "Saint John, NB"
+  },
+  {
+    "value": "Caledon, ON"
+  },
+  {
+    "value": "Granby, QC"
+  },
+  {
+    "value": "St. Albert, AB"
+  },
+  {
+    "value": "Norfolk County, ON"
+  },
+  {
+    "value": "Medicine Hat, AB"
+  },
+  {
+    "value": "Grande Prairie, AB"
+  },
+  {
+    "value": "Airdrie, AB"
+  },
+  {
+    "value": "Halton Hills, ON"
+  },
+  {
+    "value": "Port Coquitlam, BC"
+  },
+  {
+    "value": "Fredericton, NB"
+  },
+  {
+    "value": "Blainville, QC"
+  },
+  {
+    "value": "Saint-Hyacinthe, QC"
+  },
+  {
+    "value": "Aurora, ON"
+  },
+  {
+    "value": "North Vancouver, BC"
+  },
+  {
+    "value": "Welland, ON"
+  },
+  {
+    "value": "North Bay, ON"
+  },
+  {
+    "value": "Belleville, ON"
+  },
+  {
+    "value": "Mirabel, QC"
+  },
+  {
+    "value": "New York, NY"
+  },
+  {
+    "value": "Los Angeles, CA"
+  },
+  {
+    "value": "Chicago, IL"
+  },
+  {
+    "value": "Houston, TX"
+  },
+  {
+    "value": "Phoenix, AZ"
+  },
+  {
+    "value": "Philadelphia, PA"
+  },
+  {
+    "value": "San Antonio, TX"
+  },
+  {
+    "value": "San Diego, CA"
+  },
+  {
+    "value": "Dallas, TX"
+  },
+  {
+    "value": "San Jose, CA"
+  },
+  {
+    "value": "Austin, TX"
+  },
+  {
+    "value": "Jacksonville, FL"
+  },
+  {
+    "value": "Fort Worth, TX"
+  },
+  {
+    "value": "Columbus, OH"
+  },
+  {
+    "value": "San Francisco, CA"
+  },
+  {
+    "value": "Charlotte, NC"
+  },
+  {
+    "value": "Indianapolis, IN"
+  },
+  {
+    "value": "Seattle, WA"
+  },
+  {
+    "value": "Denver, CO"
+  },
+  {
+    "value": "Washington, DC"
+  },
+  {
+    "value": "Boston, MA"
+  },
+  {
+    "value": "El Paso, TX"
+  },
+  {
+    "value": "Detroit, MI"
+  },
+  {
+    "value": "Nashville, TN"
+  },
+  {
+    "value": "Portland, OR"
+  },
+  {
+    "value": "Memphis, TN"
+  },
+  {
+    "value": "Oklahoma City, OK"
+  },
+  {
+    "value": "Las Vegas, NV"
+  },
+  {
+    "value": "Louisville, KY"
+  },
+  {
+    "value": "Baltimore, MD"
+  },
+  {
+    "value": "Milwaukee, WI"
+  },
+  {
+    "value": "Albuquerque, NM"
+  },
+  {
+    "value": "Tucson, AZ"
+  },
+  {
+    "value": "Fresno, CA"
+  },
+  {
+    "value": "Mesa, AZ"
+  },
+  {
+    "value": "Sacramento, CA"
+  },
+  {
+    "value": "Atlanta, GA"
+  },
+  {
+    "value": "Kansas City, MO"
+  },
+  {
+    "value": "CO Springs, CO"
+  },
+  {
+    "value": "Miami, FL"
+  },
+  {
+    "value": "Raleigh, NC"
+  },
+  {
+    "value": "Omaha, NE"
+  },
+  {
+    "value": "Long Beach, CA"
+  },
+  {
+    "value": "Virginia Beach, VA"
+  },
+  {
+    "value": "Oakland, CA"
+  },
+  {
+    "value": "Minneapolis, MN"
+  },
+  {
+    "value": "Tulsa, OK"
+  },
+  {
+    "value": "Arlington, TX"
+  },
+  {
+    "value": "Tampa, FL"
+  },
+  {
+    "value": "New Orleans, LA"
+  },
+  {
+    "value": "Wichita, KS"
+  },
+  {
+    "value": "Cleveland, OH"
+  },
+  {
+    "value": "Bakersfield, CA"
+  },
+  {
+    "value": "Aurora, CO"
+  },
+  {
+    "value": "Anaheim, CA"
+  },
+  {
+    "value": "Honolulu, HI"
+  },
+  {
+    "value": "Santa Ana, CA"
+  },
+  {
+    "value": "Riverside, CA"
+  },
+  {
+    "value": "Corpus Christi, TX"
+  },
+  {
+    "value": "Lexington, KY"
+  },
+  {
+    "value": "Stockton, CA"
+  },
+  {
+    "value": "Henderson, NV"
+  },
+  {
+    "value": "Saint Paul, MN"
+  },
+  {
+    "value": "St. Louis, MO"
+  },
+  {
+    "value": "Cincinnati, OH"
+  },
+  {
+    "value": "Pittsburgh, PA"
+  },
+  {
+    "value": "Greensboro, NC"
+  },
+  {
+    "value": "Anchorage, AK"
+  },
+  {
+    "value": "Plano, TX"
+  },
+  {
+    "value": "Lincoln, NE"
+  },
+  {
+    "value": "Orlando, FL"
+  },
+  {
+    "value": "Irvine, CA"
+  },
+  {
+    "value": "Newark, NJ"
+  },
+  {
+    "value": "Toledo, OH"
+  },
+  {
+    "value": "Durham, NC"
+  },
+  {
+    "value": "Chula Vista, CA"
+  },
+  {
+    "value": "Fort Wayne, IN"
+  },
+  {
+    "value": "Jersey City, NJ"
+  },
+  {
+    "value": "St. Petersburg, FL"
+  },
+  {
+    "value": "Laredo, TX"
+  },
+  {
+    "value": "Madison, WI"
+  },
+  {
+    "value": "Chandler, AZ"
+  },
+  {
+    "value": "Buffalo, NY"
+  },
+  {
+    "value": "Lubbock, TX"
+  },
+  {
+    "value": "Scottsdale, AZ"
+  },
+  {
+    "value": "Reno, NV"
+  },
+  {
+    "value": "Glendale, AZ"
+  },
+  {
+    "value": "Gilbert, AZ"
+  },
+  {
+    "value": "Winston–Salem, NC"
+  },
+  {
+    "value": "North Las Vegas, NV"
+  },
+  {
+    "value": "Norfolk, VA"
+  },
+  {
+    "value": "Chesapeake, VA"
+  },
+  {
+    "value": "Garland, TX"
+  },
+  {
+    "value": "Irving, TX"
+  },
+  {
+    "value": "Hialeah, FL"
+  },
+  {
+    "value": "Fremont, CA"
+  },
+  {
+    "value": "Boise, ID"
+  },
+  {
+    "value": "Richmond, VA"
+  },
+  {
+    "value": "Baton Rouge, LA"
+  },
+  {
+    "value": "Spokane, WA"
+  },
+  {
+    "value": "Des Moines, IA"
+  },
+  {
+    "value": "Tacoma, WA"
+  },
+  {
+    "value": "San Bernardino, CA"
+  },
+  {
+    "value": "Modesto, CA"
+  },
+  {
+    "value": "Fontana, CA"
+  },
+  {
+    "value": "Santa Clarita, CA"
+  },
+  {
+    "value": "Birmingham, AL"
+  },
+  {
+    "value": "Oxnard, CA"
+  },
+  {
+    "value": "Fayetteville, NC"
+  },
+  {
+    "value": "Moreno Valley, CA"
+  },
+  {
+    "value": "Rochester, NY"
+  },
+  {
+    "value": "Glendale, CA"
+  },
+  {
+    "value": "Huntington Beach, CA"
+  },
+  {
+    "value": "Salt Lake City, UT"
+  },
+  {
+    "value": "Grand Rapids, MI"
+  },
+  {
+    "value": "Amarillo, TX"
+  },
+  {
+    "value": "Yonkers, NY"
+  },
+  {
+    "value": "Aurora, IL"
+  },
+  {
+    "value": "Montgomery, AL"
+  },
+  {
+    "value": "Akron, OH"
+  },
+  {
+    "value": "Little Rock, AR"
+  },
+  {
+    "value": "Huntsville, AL"
+  },
+  {
+    "value": "Augusta, GA"
+  },
+  {
+    "value": "Port St. Lucie, FL"
+  },
+  {
+    "value": "Grand Prairie, TX"
+  },
+  {
+    "value": "Columbus, GA"
+  },
+  {
+    "value": "Tallahassee, FL"
+  },
+  {
+    "value": "Overland Park, KS"
+  },
+  {
+    "value": "Tempe, AZ"
+  },
+  {
+    "value": "McKinney, TX"
+  },
+  {
+    "value": "Mobile, AL"
+  },
+  {
+    "value": "Cape Coral, FL"
+  },
+  {
+    "value": "Shreveport, LA"
+  },
+  {
+    "value": "Frisco, TX"
+  },
+  {
+    "value": "Knoxville, TN"
+  },
+  {
+    "value": "Worcester, MA"
+  },
+  {
+    "value": "Brownsville, TX"
+  },
+  {
+    "value": "Vancouver, WA"
+  },
+  {
+    "value": "Fort Lauderdale, FL"
+  },
+  {
+    "value": "Sioux Falls, SD"
+  },
+  {
+    "value": "Ontario, CA"
+  },
+  {
+    "value": "Chattanooga, TN"
+  },
+  {
+    "value": "Providence, RI"
+  },
+  {
+    "value": "Newport News, VA"
+  },
+  {
+    "value": "Rancho Cucamonga, CA"
+  },
+  {
+    "value": "Santa Rosa, CA"
+  },
+  {
+    "value": "Oceanside, CA"
+  },
+  {
+    "value": "Salem, OR"
+  },
+  {
+    "value": "Elk Grove, CA"
+  },
+  {
+    "value": "Garden Grove, CA"
+  },
+  {
+    "value": "Pembroke Pines, FL"
+  },
+  {
+    "value": "Peoria, AZ"
+  },
+  {
+    "value": "Eugene, OR"
+  },
+  {
+    "value": "Corona, CA"
+  },
+  {
+    "value": "Cary, NC"
+  },
+  {
+    "value": "Springfield, MO"
+  },
+  {
+    "value": "Fort Collins, CO"
+  },
+  {
+    "value": "Jackson, MS"
+  },
+  {
+    "value": "Alexandria, VA"
+  },
+  {
+    "value": "Hayward, CA"
+  },
+  {
+    "value": "Lancaster, CA"
+  },
+  {
+    "value": "Lakewood, CO"
+  },
+  {
+    "value": "Clarksville, TN"
+  },
+  {
+    "value": "Palmdale, CA"
+  },
+  {
+    "value": "Salinas, CA"
+  },
+  {
+    "value": "Springfield, MA"
+  },
+  {
+    "value": "Hollywood, FL"
+  },
+  {
+    "value": "Pasadena, TX"
+  },
+  {
+    "value": "Sunnyvale, CA"
+  },
+  {
+    "value": "Macon, GA"
+  },
+  {
+    "value": "Kansas City, KS"
+  },
+  {
+    "value": "Pomona, CA"
+  },
+  {
+    "value": "Escondido, CA"
+  },
+  {
+    "value": "Killeen, TX"
+  },
+  {
+    "value": "Naperville, IL"
+  },
+  {
+    "value": "Joliet, IL"
+  },
+  {
+    "value": "Bellevue, WA"
+  },
+  {
+    "value": "Rockford, IL"
+  },
+  {
+    "value": "Savannah, GA"
+  },
+  {
+    "value": "Paterson, NJ"
+  },
+  {
+    "value": "Torrance, CA"
+  },
+  {
+    "value": "Bridgeport, CT"
+  },
+  {
+    "value": "McAllen, TX"
+  },
+  {
+    "value": "Mesquite, TX"
+  },
+  {
+    "value": "Syracuse, NY"
+  },
+  {
+    "value": "Midland, TX"
+  },
+  {
+    "value": "Pasadena, CA"
+  },
+  {
+    "value": "Murfreesboro, TN"
+  },
+  {
+    "value": "Miramar, FL"
+  },
+  {
+    "value": "Dayton, OH"
+  },
+  {
+    "value": "Fullerton, CA"
+  },
+  {
+    "value": "Olathe, KS"
+  },
+  {
+    "value": "Orange, CA"
+  },
+  {
+    "value": "Thornton, CO"
+  },
+  {
+    "value": "Roseville, CA"
+  },
+  {
+    "value": "Denton, TX"
+  },
+  {
+    "value": "Waco, TX"
+  },
+  {
+    "value": "Surprise, AZ"
+  },
+  {
+    "value": "Carrollton, TX"
+  },
+  {
+    "value": "West Valley City, UT"
+  },
+  {
+    "value": "Charleston, SC"
+  },
+  {
+    "value": "Warren, MI"
+  },
+  {
+    "value": "Hampton, VA"
+  },
+  {
+    "value": "Gainesville, FL"
+  },
+  {
+    "value": "Visalia, CA"
+  },
+  {
+    "value": "Coral Springs, FL"
+  },
+  {
+    "value": "Columbia, SC"
+  },
+  {
+    "value": "Cedar Rapids, IA"
+  },
+  {
+    "value": "Sterling Heights, MI"
+  },
+  {
+    "value": "New Haven, CT"
+  },
+  {
+    "value": "Stamford, CT"
+  },
+  {
+    "value": "Concord, CA"
+  },
+  {
+    "value": "Kent, WA"
+  },
+  {
+    "value": "Santa Clara, CA"
+  },
+  {
+    "value": "Elizabeth, NJ"
+  },
+  {
+    "value": "Round Rock, TX"
+  },
+  {
+    "value": "Thousand Oaks, CA"
+  },
+  {
+    "value": "Lafayette, LA"
+  },
+  {
+    "value": "Athens, GA"
+  },
+  {
+    "value": "Topeka, KS"
+  },
+  {
+    "value": "Simi Valley, CA"
+  },
+  {
+    "value": "Fargo, ND"
+  },
+  {
+    "value": "Norman, OK"
+  },
+  {
+    "value": "Columbia, MO"
+  },
+  {
+    "value": "Abilene, TX"
+  },
+  {
+    "value": "Wilmington, NC"
+  },
+  {
+    "value": "Hartford, CT"
+  },
+  {
+    "value": "Victorville, CA"
+  },
+  {
+    "value": "Pearland, TX"
+  },
+  {
+    "value": "Vallejo, CA"
+  },
+  {
+    "value": "Ann Arbor, MI"
+  },
+  {
+    "value": "Berkeley, CA"
+  },
+  {
+    "value": "Allentown, PA"
+  },
+  {
+    "value": "Richardson, TX"
+  },
+  {
+    "value": "Odessa, TX"
+  },
+  {
+    "value": "Arvada, CO"
+  },
+  {
+    "value": "Cambridge, MA"
+  },
+  {
+    "value": "Sugar Land, TX"
+  },
+  {
+    "value": "Beaumont, TX"
+  },
+  {
+    "value": "Lansing, MI"
+  },
+  {
+    "value": "Evansville, IN"
+  },
+  {
+    "value": "Rochester, MN"
+  },
+  {
+    "value": "Independence, MO"
+  },
+  {
+    "value": "Fairfield, CA"
+  },
+  {
+    "value": "Provo, UT"
+  },
+  {
+    "value": "Clearwater, FL"
+  },
+  {
+    "value": "College Station, TX"
+  },
+  {
+    "value": "West Jordan, UT"
+  },
+  {
+    "value": "Carlsbad, CA"
+  },
+  {
+    "value": "El Monte, CA"
+  },
+  {
+    "value": "Murrieta, CA"
+  },
+  {
+    "value": "Temecula, CA"
+  },
+  {
+    "value": "Springfield, IL"
+  },
+  {
+    "value": "Palm Bay, FL"
+  },
+  {
+    "value": "Costa Mesa, CA"
+  },
+  {
+    "value": "Westminster, CO"
+  },
+  {
+    "value": "North Charleston, SC"
+  },
+  {
+    "value": "Miami Gardens, FL"
+  },
+  {
+    "value": "Manchester, NH"
+  },
+  {
+    "value": "High Point, NC"
+  },
+  {
+    "value": "Downey, CA"
+  },
+  {
+    "value": "Clovis, CA"
+  },
+  {
+    "value": "Pompano Beach, FL"
+  },
+  {
+    "value": "Pueblo, CO"
+  },
+  {
+    "value": "Elgin, IL"
+  },
+  {
+    "value": "Lowell, MA"
+  },
+  {
+    "value": "Antioch, CA"
+  },
+  {
+    "value": "West Palm Beach, FL"
+  },
+  {
+    "value": "Peoria, IL"
+  },
+  {
+    "value": "Everett, WA"
+  },
+  {
+    "value": "Ventura, CA"
+  },
+  {
+    "value": "Centennial, CO"
+  },
+  {
+    "value": "Lakeland, FL"
+  },
+  {
+    "value": "Gresham, OR"
+  },
+  {
+    "value": "Richmond, CA"
+  },
+  {
+    "value": "Billings, MT"
+  },
+  {
+    "value": "Inglewood, CA"
+  },
+  {
+    "value": "Broken Arrow, OK"
+  },
+  {
+    "value": "Sandy Springs, GA"
+  },
+  {
+    "value": "Jurupa Valley, CA"
+  },
+  {
+    "value": "Hillsboro, OR"
+  },
+  {
+    "value": "Waterbury, CT"
+  },
+  {
+    "value": "Santa Maria, CA"
+  },
+  {
+    "value": "Boulder, CO"
+  },
+  {
+    "value": "Greeley, CO"
+  },
+  {
+    "value": "Daly City, CA"
+  },
+  {
+    "value": "Meridian, ID"
+  },
+  {
+    "value": "Lewisville, TX"
+  },
+  {
+    "value": "Davie, FL"
+  },
+  {
+    "value": "West Covina, CA"
+  },
+  {
+    "value": "League City, TX"
+  },
+  {
+    "value": "Tyler, TX"
+  },
+  {
+    "value": "Norwalk, CA"
+  },
+  {
+    "value": "San Mateo, CA"
+  },
+  {
+    "value": "Green Bay, WI"
+  },
+  {
+    "value": "Wichita Falls, TX"
+  },
+  {
+    "value": "Sparks, NV"
+  },
+  {
+    "value": "Lakewood, NJ"
+  },
+  {
+    "value": "Burbank, CA"
+  },
+  {
+    "value": "Rialto, CA"
+  },
+  {
+    "value": "Allen, TX"
+  },
+  {
+    "value": "El Cajon, CA"
+  },
+  {
+    "value": "Las Cruces, NM"
+  },
+  {
+    "value": "Renton, WA"
+  },
+  {
+    "value": "Davenport, IA"
+  },
+  {
+    "value": "South Bend, IN"
+  },
+  {
+    "value": "Vista, CA"
+  },
+  {
+    "value": "Tuscaloosa, AL"
+  },
+  {
+    "value": "Clinton, MI"
+  },
+  {
+    "value": "Edison, NJ"
+  },
+  {
+    "value": "Woodbridge, NJ"
+  },
+  {
+    "value": "San Angelo, TX"
+  },
+  {
+    "value": "Kenosha, WI"
+  },
+  {
+    "value": "Vacaville, CA"
+  }
+]

@@ -1,10 +1,10 @@
 import React from 'react';
 import AppCard from './AppCard';
 import appService from '../../services/AppService';
-import companyService from '../../services/CompanyService';
 import './Dash.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 class Dash extends React.Component {
 
     constructor(props) {
@@ -24,33 +24,42 @@ class Dash extends React.Component {
         });
 
     }
+    handleDeleteApp = (app) => {
+        console.log('delete app');
 
-    
-    handleCompanyClick(app) {
-        window.open(`https://${app.company.url}`, "_blank");        
+        let { _id } = app;
+        appService.deleteApplication(_id).then(res => {
+            console.log(res.data);
+        }).catch(err => {
+            console.log('Error happened when deleting application ', err);
+        })
+        const {applications} = this.state;
+        const appIndex = applications.indexOf(app);
+        applications.splice(appIndex, 1);
+        this.setState({
+            applications : applications,
+        })
+        
     }
 
     handleAddCompany(){
         console.log('Add company');
-        companyService.getCompanies().then(res =>{
-            console.log(res.data);
-        });
     }   
    
 
     render() {
-        const {applications, expanded} = this.state;
+        const {applications} = this.state;
         const applicationDiv = applications.map((app) => 
-            <AppCard key={app._id} application={app} onClick={() => this.handleCompanyClick(app)}/>
+            <AppCard key={app._id} application={app} onClick={() => this.handleDeleteApp(app)}/>
         ); 
         return (
             <div>
                 
             <div className="flex-container">
-          
+
                 {applicationDiv}
                 <div className="add-container">
-                    <FontAwesomeIcon className="action-button" icon={faPlusCircle} onClick={() => this.handleAddCompany()}/>
+                    <FontAwesomeIcon className="action-button" icon={faPlus} onClick={() => this.handleAddCompany()}/>
                 </div>
 
             </div>

@@ -1,87 +1,106 @@
 import React from 'react';
 import './AppCard.css';
 import Collapse from '@material-ui/core/Collapse';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+
 import appService from '../../services/AppService';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Cancel';
+
 
 class AppCard extends React.Component {
     constructor(props) {
         super(props);
-        let {status} = this.props.application;
+        let { status } = this.props.application;
         let appContainerClass = `app-container ${status}-body`;
         this.state = {
             expanded: false,
-            appContainerClass : appContainerClass,
+            appContainerClass: appContainerClass,
         }
-       
+
     }
 
 
 
 
-    changeAppStatus(newStatus){
+    changeAppStatus(newStatus) {
         let { status } = this.props.application;
         let newAppContainerClass = "";
         console.log('status', status, newStatus);
-        if (newStatus == status){
+        if (newStatus === status) {
             newStatus = 'Pending';
             newAppContainerClass = `app-container Pending-body`
-        }else{
-            newAppContainerClass = `app-container ${newStatus}-body`; 
+        } else {
+            newAppContainerClass = `app-container ${newStatus}-body`;
         }
-        
-        let {_id} = this.props.application;
+
+        let { _id } = this.props.application;
         this.props.application.status = newStatus; //To get the new status we need a refetch, but we change it locally to avoid refetching data.
 
-        appService.changeStatus(_id, newStatus).then( res => {
-            
+        appService.changeStatus(_id, newStatus).then(res => {
+
             this.setState({
-                expanded : false,
-                appContainerClass : newAppContainerClass,
+                expanded: false,
+                appContainerClass: newAppContainerClass,
             })
         }).catch(err => {
             console.log('something bad happened in appcard.jsx', err);
         })
     }
     handleCollapseClick = (event) => {
-        
+
         this.setState({
             expanded: !this.state.expanded,
         });
-        
-        
+
+
     }
 
     handleStatusClick = (event) => {
         let newStatus = event.target.value;
         this.changeAppStatus(newStatus);
     }
-    handleHeaderClick = () => {
-        console.log('header click')
-        //This calls the on click in the dash compoenent (get the app url)
+
+
+    
+    handleCompanyNameClick = () => {
+        window.open(`https://${this.props.application.company.url}`, "_blank");        
+    }
+    
+
+    deleteApplication = () => {
         this.props.onClick();
+        
     }
     render() {
-        const { expanded , appContainerClass} = this.state;
+        const { expanded, appContainerClass } = this.state;
         //If application is undefined due to asynchronous operations
         if (!this.props.application) return null;
 
         const { company, location, position } = this.props.application;
         const companyName = company.name;
-        const companyUrl = company.url;
 
         return (
 
             <div className={appContainerClass}>
+                <div className="delete-icon" onClick={this.deleteApplication}>
+                    <IconButton aria-label="delete" >
+                        <DeleteIcon style={{ fontSize: 14 }} />
+                    </IconButton>
+                </div>
                 <div className="app-header-container" >
-                    <div className="app-header" onClick={this.handleHeaderClick}>
+
+
+                    <div className="app-header" onClick={this.handleCompanyNameClick}>
                         {companyName}
                     </div>
 
-                    <div className="icon-down">
-                        <FontAwesomeIcon icon={faAngleDown} onClick={this.handleCollapseClick}/>
+                    <div className="icon-down" onClick={this.handleCollapseClick}>
+
+                        <FontAwesomeIcon icon={faAngleDown} />
                     </div>
+
 
                 </div>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -94,7 +113,7 @@ class AppCard extends React.Component {
                         </div>
 
                         <div className="status-button-container">
-                            
+
                             <button className="button-status" onClick={this.handleStatusClick} value="Ghosted">Ghosted</button>
                             <button className="button-status" onClick={this.handleStatusClick} value="Rejected">Rejected</button>
                             <button className="button-status" onClick={this.handleStatusClick} value="Offered">Offered</button>

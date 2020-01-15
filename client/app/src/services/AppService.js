@@ -1,5 +1,4 @@
 import axios from './AxiosConfig';
-import userService from './UserService';
 
 
 function getApplications(){
@@ -15,9 +14,23 @@ function changeStatus(appId, newStatus){
     return axios.post(`/user/application/${appId}/edit`, data);
 }
 
+function addApplication(data){
+    let newApp = {
+        app : data,
+    }
+    return axios.post('/user/application/add', newApp);
+}
+
+function deleteApplication(appId){
+
+    return axios.delete(`/user/application/${appId}`);
+}
+
 const service = {
     getApplications : getApplications,
     changeStatus : changeStatus,
+    addApplication : addApplication,
+    deleteApplication : deleteApplication,
 };
 
 export default service;
