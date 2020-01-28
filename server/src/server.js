@@ -36,9 +36,9 @@ app.use(cors(corsOptions));
  
 
 //routes declaration
-app.use('api/user', user_route);
-app.use('api/company', company_route);
-app.use('api/auth', auth_route);
+app.use('/api/user', user_route);
+app.use('/api/company', company_route);
+app.use('/api/auth', auth_route);
 app.use(errorHandler);
 
 app.get('/api', async (req, res) => {
