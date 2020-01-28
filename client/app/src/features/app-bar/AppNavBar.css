@@ -1,3 +1,46 @@
 .bar-container {
     flex-grow: 1;
+    
+}
+.menu-button {
+    margin-right: 36;
+}
+.bar-title {
+    flex-grow: 1;
+    font-family: "Roboto Mono",monospace;
+    font-size: 17px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.signup-button{
+    background-color: white;
+    color: black;
+    padding: 8px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.signup-button:hover {
+    background-color: rgb(199, 199, 199);
+}
+
+.login-button{
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.login-button:hover {
+    color: rgb(199, 199, 199);
+}
+
+.logout-button {
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    padding: 8px;
+    margin-right : 10px;
+    transition: 0.5s;
+    background-color: rgb(90, 39, 39);
 }

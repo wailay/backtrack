@@ -1,6 +1,7 @@
 .company-container {
     display: inline-flex;
     width: 150px;
+    height: 110px;
     align-items: center;
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     margin: 15px;
@@ -22,15 +23,14 @@
 }
 .company-name {
     font-size: large;
-    padding: 10px;
+    padding: 10px 20px 10px 10px;
     width: 100%;
     font-weight: 450;
-    /* border: 1px solid red; */
+    text-align: center;
 }
 
 .company-logo {
     margin-left: 10px;
-    /* border: 1px solid blue; */
 
 }
 

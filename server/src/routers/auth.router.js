@@ -7,10 +7,10 @@ const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 
-passport.use(new LocalStrategy({ usernameField: 'email' },
-    function (email, password, done) {
+passport.use(new LocalStrategy(
+    function (username, password, done) {
 
-        User.findOne({ email: email }, function (err, user) {
+        User.findOne({ username: username }, function (err, user) {
 
             if (err) throw err;
 
@@ -45,7 +45,8 @@ router.get('/', function (req, res) {
 router.post('/login', passport.authenticate('local'), function(req, res, next) {
     console.log('trying to login')
         try {
-            res.status(200).send("Login successful");
+
+            res.status(200).send({success : true});
         } catch (err) {
             next(err);
         }
@@ -56,21 +57,37 @@ router.get('/logout', function (req, res) {
     res.status(200).send("Logout successful !");
 });
 
-router.post('/signin', async (req, res, next) => {
+router.post('/signup', async (req, res, next) => {
     try {
 
-        let email = req.body.email;
-        let plainPwd = req.body.password;
+        let username = req.body.username;
+        let user = await User.findOne({username : username});
+        console.log(user);
+        if (user){
+            res.status(200).send({
+                alreadyRegistered : true,
+                success : false,
+            });
+        }
+        else {
 
-        let hashPwd = await bcrypt.hash(plainPwd, saltRounds);
+            let plainPwd = req.body.password;
+            let hashPwd = await bcrypt.hash(plainPwd, saltRounds);
 
-        User.create({
-            email: email,
-            password: hashPwd,
-        });
-        res.status(200).send("User created!");
+            User.create({
+                username: username,
+                password: hashPwd,
+            });
+            res.status(200).send({
+                alreadyRegistered : false,
+                success : true,
+            });
+    }
     } catch (err) {
-        next(err);
+        res.status(200).send({
+            success : false,
+        });
+        // next(err);
     };
 });
 

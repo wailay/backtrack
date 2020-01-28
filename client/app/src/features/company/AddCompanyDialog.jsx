@@ -24,6 +24,9 @@ class AppCompanyDialog extends React.Component {
     }
 
     handleDialogClose = () => {
+        this.setState({
+            location : '',
+        })
         this.props.onClick();
     }
 
@@ -67,9 +70,9 @@ class AppCompanyDialog extends React.Component {
     renderSubmitButton() {
         const { location, position } = this.state;
         if (location === '' || position === '') {
-            return <Button disabled> Add Company </Button>
+            return <Button disabled> Add Company </Button>;
         } else {
-            return <Button onClick={this.handleAddCompany}> Add Company </Button>
+            return <Button onClick={this.handleAddCompany}> Add Company </Button>;
         }
 
     };
@@ -79,7 +82,7 @@ class AppCompanyDialog extends React.Component {
 
         return (
             <div>
-                <Dialog open={open} onClose={this.handleDialogClose} aria-labelledby="form-dialog-title" >
+                <Dialog open={open} onClose={this.handleDialogClose} aria-labelledby="form-dialog-title" className="dialog">
                     <DialogTitle id="form-dialog-title">Add Job Application</DialogTitle>
 
                     <DialogContent>

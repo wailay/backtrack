@@ -1,12 +1,17 @@
 import React from 'react';
-
-
 class Home extends React.Component {
+
+    componentDidMount() {
+        console.log('mounted home hiiiiii');
+    }
 
     render(){
         return(
             <div>
-                HOME GET STARTED INFO PAGE...
+                <div>
+                                        
+                HOME
+            </div>
             </div>
         );
     }

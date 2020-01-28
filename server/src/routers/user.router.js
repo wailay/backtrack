@@ -18,6 +18,8 @@ router.get('/me', async (req ,res, next) => {
     let _id = req.user;
     //Exclude appplications so we dont get a large query
     let user = await User.findById(_id).select("-applications");
+
+    
     res.status(200).send(user);
     }catch(err){
         next(err);

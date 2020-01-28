@@ -16,7 +16,7 @@ var applicationSchema = new Schema({
 });
 var userSchema = new Schema({
     provider: {type : String, default : "null"},
-    email: String,
+    username: String,
     password: String,
     provider_id: {type : String, default : "null"},
     applications : [applicationSchema],

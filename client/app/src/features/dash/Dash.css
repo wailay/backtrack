@@ -1,33 +1,51 @@
 .flex-container {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
-    margin-top: 50px;
-    margin-left: 20px;
-    justify-content: flex-start;
+    margin-top: 30px;
+    justify-content: center;
     align-items: baseline;
 
 }
 
-
 .add-container {
     
     text-align: center;
-    
-
     color : rgb(0, 0, 0);
     width: 200px;
     margin: 15px;
 
-
 }
 
-.action-button{
-    transition: 0.5s;
-    /* font-size: 1.5em; */
-    
+.application-leave { 
+    opacity: 1;
 }
-.action-button:hover{
-    font-size: 1.1em;
-    color: salmon;
+  
+.application-leave.application-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
 
-}
+.application-appear {
+    opacity: 0.01;
+  }
+  
+  .application-appear.application-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+  }
+
+  .empty-image-container{
+      width: 30%;
+      margin: auto ;
+      margin-top: 40px;
+      text-align: center;
+  }
+
+  .empty-image {
+      width: 100%;
+  }
+
+  .empty-app-button {
+      margin-top : 50px
+
+  }

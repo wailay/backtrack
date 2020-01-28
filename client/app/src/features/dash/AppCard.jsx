@@ -1,9 +1,6 @@
 import React from 'react';
 import './AppCard.css';
 import Collapse from '@material-ui/core/Collapse';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-
 import appService from '../../services/AppService';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Cancel';
@@ -89,19 +86,9 @@ class AppCard extends React.Component {
                         <DeleteIcon style={{ fontSize: 14 }} />
                     </IconButton>
                 </div>
-                <div className="app-header-container" >
+                <div className="app-header" onClick={this.handleCollapseClick}>
 
-
-                    <div className="app-header" onClick={this.handleCompanyNameClick}>
                         {companyName}
-                    </div>
-
-                    <div className="icon-down" onClick={this.handleCollapseClick}>
-
-                        <FontAwesomeIcon icon={faAngleDown} />
-                    </div>
-
-
                 </div>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <div className="app-body">
@@ -114,9 +101,11 @@ class AppCard extends React.Component {
 
                         <div className="status-button-container">
 
-                            <button className="button-status" onClick={this.handleStatusClick} value="Ghosted">Ghosted</button>
+
+
+                            <button className="button-status" id="left" onClick={this.handleStatusClick} value="Ghosted">Ghosted</button>
                             <button className="button-status" onClick={this.handleStatusClick} value="Rejected">Rejected</button>
-                            <button className="button-status" onClick={this.handleStatusClick} value="Offered">Offered</button>
+                            <button className="button-status" id="right" onClick={this.handleStatusClick} value="Offered">Offered</button>
 
                         </div>
                     </div>

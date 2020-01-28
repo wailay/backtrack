@@ -1,115 +1,111 @@
 import React from 'react';
 import userService from '../../services/UserService';
 import TextField from '@material-ui/core/TextField';
-import './LoginForm.css';
-import { Typography, Button, Link } from '@material-ui/core';
+import './SignupForm.css';
+import { Typography, Button } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import {AuthContext} from '../../utils/context/AuthProvider';
-class LoginForm extends React.Component {
-    
+
+class SignupForm extends React.Component {
     static contextType = AuthContext;
-    
     constructor(props){
         super(props);
         this.state = {
             username : '',
             password : '',
-            open : false,
+            alreadyRegistered : false,
         }
-
-        
-
     }
-    
+
+
     handleChange = (event) => {
         let value = event.target.value;
+        
+        console.log(event.target.name);
         this.setState({
             ...this.state,
             [event.target.name]: value,
         })
-        
     }
+
     handleSubmit = (event) => {
         
         const data = {
             username : this.state.username,
             password : this.state.password,
         }
-        userService.login(data).then(res => {
-            if (res.data.success) {
-                this.context.setAuthStatus(true);
-                this.props.history.push('/dash');
+        userService.signup(data).then(res => {
+            if (res.data.alreadyRegistered){
+                this.setState({
+                    alreadyRegistered : res.data.alreadyRegistered,
+                })
+            }else if(res.data.success){
+                userService.login(data).then(res => {
+                    this.context.setAuthStatus(res.data.success);
+                    this.props.history.push('/dash');
+                }).catch(err => {
+                    this.context.setAuthStatus(false);
+                });
             }
         }).catch(err => {
-        this.setState({
-            open : true,
-        })
-        this.context.setAuthStatus(false);
-        
-    });
+            console.log('error when signing up ', err);
+        });
         event.preventDefault();
     }
 
-    handleAlertClose = () => {
+    handleLoginDialogClose = () => {
         this.setState({
-            open : false,
+            open: false,
         })
     }
 
-    componentDidMount(){
-
+    handleAlertClose = () => {
+        this.setState({alreadyRegistered : false});
     }
+
     render(){
-       
-        const {open} = this.state;
-        
+        const {alreadyRegistered} = this.state;
         return(
             <div>
 
-                <Snackbar open={open} autoHideDuration={2000} onClose={this.handleAlertClose}>
+                <Snackbar open={alreadyRegistered} autoHideDuration={2000} onClose={this.handleAlertClose}>
                     <Alert onClose={this.handleAlertClose} severity="error">
-                        Username or Password is incorrect
+                        Username already registered !
                     </Alert>
                 </Snackbar>
                 <div className="div-container">
                 <div className="left">
                 </div>
                 
-                <div className="login-container">
+                <div className="signup-container">
                 <Typography variant="h4" gutterBottom>
-                    Log in
+                    Sign up
                 </Typography>
                     <form autoComplete="off" onSubmit={this.handleSubmit}>
                         
-                        <TextField required id="outlined-user" label="Username" name="username" variant="outlined" onChange={this.handleChange} />
-                        <TextField required id="outlined-pass" label="Password" name="password" variant="outlined" onChange={this.handleChange} />
+                        <TextField required id="outlined-user" label="Username" variant="outlined" name="username" onChange={this.handleChange}/>
+                        <TextField required id="outlined-pass" label="Password" variant="outlined" name="password" onChange={this.handleChange}/>
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
                             color="primary"
                             className="submit-button"
+                            
                         >
-                            LogIn
+                            Sign up
                         </Button>
-
-                        <div className="no-account">
-                            <div>
-                                <Link href="/signup" variant="body2">
-                                {"Don't have an account? Sign Up"}
-                                </Link>
-                            </div>
-                        </div>
 
                     </form>
                 </div>
 
                 </div>
+
             
             </div>
         );
     }
 }
 
-export default LoginForm;
+export default SignupForm;

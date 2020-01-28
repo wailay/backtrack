@@ -2,43 +2,53 @@ import React from 'react';
 import AppCard from './AppCard';
 import appService from '../../services/AppService';
 import './Dash.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import emptyImage from '../../assets/empty.svg';
 class Dash extends React.Component {
-
+    _isMounted = false;
     constructor(props) {
         super(props);
         this.state = {
             applications: [],
-
+            loading : true,
         }
+        
     }
 
     componentDidMount() {
-
+        this._isMounted = true;
+        console.log('comp mounted dash');
         appService.getApplications().then(res => {
-            this.setState({
+
+            if(this._isMounted){
+            console.log('getting data ', res.data);
+            
+                this.setState({
                 applications: res.data,
+                loading : false,
             })
+            }
         });
 
     }
-    handleDeleteApp = (app) => {
-        console.log('delete app');
 
+    componentWillUnmount(){
+        this._isMounted = false;
+    }
+
+    handleDeleteApp(app){
+        
         let { _id } = app;
         appService.deleteApplication(_id).then(res => {
-            console.log(res.data);
+            const {applications} = this.state;
+            const appIndex = applications.indexOf(app);
+            applications.splice(appIndex, 1);
+            this.setState({
+                applications : applications,
+            })
         }).catch(err => {
             console.log('Error happened when deleting application ', err);
-        })
-        const {applications} = this.state;
-        const appIndex = applications.indexOf(app);
-        applications.splice(appIndex, 1);
-        this.setState({
-            applications : applications,
-        })
+        });
         
     }
 
@@ -46,24 +56,52 @@ class Dash extends React.Component {
         console.log('Add company');
     }   
    
+    renderNoApplications(){
+        return (
+            <div className="empty-image-container">
+                <img src={emptyImage} alt="empty image" className="empty-image"/>
+                <div className="empty-app-button">
+                    Add new applications
+                </div>
+                
+            </div>
+        );
+    }
 
     render() {
-        const {applications} = this.state;
+        const {applications, loading} = this.state;
+        console.log(applications);
         const applicationDiv = applications.map((app) => 
             <AppCard key={app._id} application={app} onClick={() => this.handleDeleteApp(app)}/>
         ); 
+
+        if (loading) return null;
+        if (applications.length === 0){
+            return this.renderNoApplications();
+        }
+       
         return (
             <div>
-                
-            <div className="flex-container">
+                DASHHh
+             <ReactCSSTransitionGroup
+                transitionName="application"
+                transitionAppear={true}
+                transitionAppearTimeout={2000}
+                transitionEnter={false}
+                transitionLeave={false}>
+            
+                <ReactCSSTransitionGroup
+                    className="flex-container"
+                    transitionName="application"
+                    transitionEnter={false}
+                    transitionLeaveTimeout={300}
+                >
+                    {applicationDiv}
+                </ReactCSSTransitionGroup>
+            
 
-                {applicationDiv}
-                <div className="add-container">
-                    <FontAwesomeIcon className="action-button" icon={faPlus} onClick={() => this.handleAddCompany()}/>
-                </div>
-
-            </div>
-
+            
+            </ReactCSSTransitionGroup>
             </div>
            
         );

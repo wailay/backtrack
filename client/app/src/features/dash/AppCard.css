@@ -8,41 +8,33 @@
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     transition: 1s;
     border-radius: 4px;
-
-
-    /* Prevent text selection highlight on all browsers */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none; 
+    cursor: pointer;
 }
 
+
+
 .app-header-container {
-    padding: 15px 0 15px 0;
+
+    padding: 0 15px 0 15px;
 }
 .app-header {
     display: inline-block;
     text-align: center;
-    padding: 0 35px 0 35px;
-    
+    width: 100%;
+    padding: 15px 0 15px 0;
 }
-.icon-down{
-    display: inline-block;
-    cursor: pointer;
-
-    
-}
-
 
 .delete-icon {
     position: absolute;
     top : -10px;
     right : -10px;
     z-index: 10000;
+    opacity: 0;
+    transition: 0.5s;
+}
 
-
+.app-container:hover .delete-icon{
+    opacity: 1;
 }
 
 .app-body {
@@ -72,35 +64,60 @@
     
     width: 100%;
     height: 100%;
-    font-size: 12px;
+    font-size: 13px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    
+    cursor: pointer;
+    background-color: rgba(32, 36, 51, 0.384);
+    border : 0;
+    transition: 0.5s;
 
 }
 
+.button-status:hover {
+    background-color: rgba(32, 36, 51, 0.562);
 
+}
+
+#left.button-status{
+    border-radius: 0 0 0 2px;
+}
+
+#right.button-status{
+    border-radius: 0 0 2px 0;
+}
 .Ghosted-body {
     background-color: lightgray;
 }
 
 
 .Rejected-body {
-
-    background-color: lightcoral;
-
-
+    background-color:#ee6262 ;
 }
 
 .Offered-body {
-    background-color: lightskyblue;
+    background: linear-gradient(-45deg,#56d5e8, #568ee8, #95e856, #e8ab56,#bd56e9, #ee64ce, #e3e856);
+	background-size: 600% 600%;
+	animation: gradient 12s infinite;
 }
 
 .Pending-body {
     background-color: lightsteelblue;
 }
 
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
 
 

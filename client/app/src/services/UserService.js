@@ -3,37 +3,37 @@ import axios from './AxiosConfig';
 
 
 function checkAuth() {
-    
+
     return axios.get('/auth');
 }
 
-function login(data){
-    
-    axios.post('/auth/login', data).then(res => {
-        console.log('login', res);
-        return true;
-    }).catch(err => {
-        return false;
-    });
+function login(data) {
 
-    
+    return axios.post('/auth/login', data);
+
+
 }
-function logout(){
+function logout() {
     return axios.get('auth/logout');
 }
-function getUser(){
-    
+
+function signup(data) {
+    return axios.post('auth/signup', data);
+}
+function getUser() {
+
     return axios.get('/user/me');
 
-    
-}; 
+
+};
 
 
 const service = {
-    getUser : getUser,
-    checkAuth : checkAuth,
-    login : login,
-    logout : logout,
+    getUser: getUser,
+    checkAuth: checkAuth,
+    login: login,
+    signup: signup,
+    logout: logout,
 
 }
 

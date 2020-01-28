@@ -5,7 +5,7 @@ import CompanyCard from './CompanyCard';
 import AddCompanyDialog from './AddCompanyDialog';
 import './Company.css';
 class CompanyDash extends React.Component {
-
+    _isMounted = true;
     constructor(props){
         super(props);
         this.state = {
@@ -16,18 +16,21 @@ class CompanyDash extends React.Component {
         }
     }
     componentDidMount(){
+        this._isMounted = true;
         companyService.getCompanies().then(res => {
+            if(this._isMounted){
             this.setState({
                 companies : res.data,
                 loading : false,
-            })
+            });
+        }
         }).catch(err => {
             console.log("error when fetching companies ", err);
         })
     }
 
     componentWillUnmount(){
-        console.log('company dash unmounted');
+        this._isMounted = false;
     }
 
     handleSearch(event) {
