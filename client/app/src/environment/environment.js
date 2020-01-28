@@ -3,7 +3,7 @@ const dev = {
 }
 
 const prod = {
-    API_URL : "idk"
+    API_URL : "api"
 }
 
 const env = (process.env.NODE_ENV === 'development') ? dev : prod;
