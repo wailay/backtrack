@@ -13,7 +13,8 @@ var errorHandler = require('./services/error_handler');
 
 var cors = require('cors');
 var corsOptions = {
-    origin: true,
+    origin: 'https://trailmark.me',
+    optionsSuccessStatus: 200,
     credentials: true,
     methods: ['GET', 'POST', 'DELETE'],
   }
