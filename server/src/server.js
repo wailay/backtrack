@@ -41,13 +41,13 @@ app.use('api/company', company_route);
 app.use('api/auth', auth_route);
 app.use(errorHandler);
 
-app.get('/', async (req, res) => {
+app.get('/api', async (req, res) => {
     console.log(req.user);
      res.send("hello");
  
  });
 
- app.get('/fail', async (req, res) => {
+ app.get('/api/fail', async (req, res) => {
      console.log('fail');
      res.send("fail"); 
  });
