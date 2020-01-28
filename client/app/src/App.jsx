@@ -10,6 +10,10 @@ import LoginForm from './features/login/LoginForm';
 import SignupForm from './features/signup/SignupForm';
 import userService from './services/UserService';
 import {AuthContext} from './utils/context/AuthProvider';
+
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-157220630-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 class App extends React.Component {
     static contextType = AuthContext;
     constructor(props) {
