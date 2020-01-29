@@ -87,7 +87,7 @@ class AppCompanyDialog extends React.Component {
 
                     <DialogContent>
                         <DialogContentText style={{ marginBottom: 25 }}>
-                            <img style={{ verticalAlign: 'middle', marginRight: 10, height: 32, width: 32 }} alt="Company Logo" src={`https://${company.url}/favicon.ico`} />
+                            <img style={{ verticalAlign: 'middle', marginRight: 10, height: 32, width: 32 }} alt="Company Logo" src={company.url} />
                             {company.name}
                         </DialogContentText>
                         <div className="group-input-container">
