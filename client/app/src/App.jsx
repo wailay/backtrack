@@ -1,19 +1,21 @@
 import React from 'react';
 import Dash from './features/dash/Dash';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import CompanyDash from './features/company/Company';
 import AppNavBar from './features/app-bar/AppNavBar';
 import withAuth from './utils/HOC/withAuth';
 import LoginForm from './features/login/LoginForm';
 import SignupForm from './features/signup/SignupForm';
+import Profile from './features/profile/Profile';
+import Stats from './features/stats/Stats';
 import userService from './services/UserService';
 import {AuthContext} from './utils/context/AuthProvider';
 
 import ReactGA from 'react-ga';
 import AddCompany from './features/add-company/AddCompany';
-// ReactGA.initialize('UA-157220630-1');
-// ReactGA.pageview(window.location.pathname + window.location.search);
+ReactGA.initialize('UA-157220630-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 class App extends React.Component {
     static contextType = AuthContext;
     constructor(props) {
@@ -58,6 +60,8 @@ class App extends React.Component {
                                 <Route exact path={["/", "/dash"]} component={withAuth(Dash)} />
                                 <Route exact path="/login" component={LoginForm} />
                                 <Route exact path="/signup" component={SignupForm} />
+                                <Route exact path="/profile" component={withAuth(Profile)} />
+                                <Route exact path="/stats" component={withAuth(Stats)} />
                                 <Route exact path="/company" component={withAuth(CompanyDash)} />
                                 <Route exact path="/company/add" component={withAuth(AddCompany)} />
                                
