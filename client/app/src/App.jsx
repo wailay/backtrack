@@ -1,6 +1,6 @@
 import React from 'react';
 import Dash from './features/dash/Dash';
-import { BrowserRouter as Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import CompanyDash from './features/company/Company';
 import AppNavBar from './features/app-bar/AppNavBar';
@@ -12,8 +12,8 @@ import {AuthContext} from './utils/context/AuthProvider';
 
 import ReactGA from 'react-ga';
 import AddCompany from './features/add-company/AddCompany';
-ReactGA.initialize('UA-157220630-1');
-ReactGA.pageview(window.location.pathname + window.location.search);
+// ReactGA.initialize('UA-157220630-1');
+// ReactGA.pageview(window.location.pathname + window.location.search);
 class App extends React.Component {
     static contextType = AuthContext;
     constructor(props) {
@@ -52,19 +52,18 @@ class App extends React.Component {
             <div>
                 
                     <AppNavBar isUserLoggedIn={isLogged} logout={this.handleLogout}/>
-                    
                         <div>
-                            <Switch>
-                                
-                                <Route exact path="/company" component={withAuth(CompanyDash)} />
-                                <Route exact path="/company/add" component={withAuth(AddCompany)} />
-
+                            <Switch>   
+                            
+                                <Route exact path={["/", "/dash"]} component={withAuth(Dash)} />
                                 <Route exact path="/login" component={LoginForm} />
                                 <Route exact path="/signup" component={SignupForm} />
-
-                                <Route exact path={["/", "/dash"]} component={withAuth(Dash)} />
+                                <Route exact path="/company" component={withAuth(CompanyDash)} />
+                                <Route exact path="/company/add" component={withAuth(AddCompany)} />
+                               
 
                             </Switch>
+                           
                         </div>
             </div>
         );
