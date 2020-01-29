@@ -3,7 +3,6 @@ import companyService from '../../services/CompanyService';
 import LoadingSpinner from '../../shared/LoadingSpinner';
 import CompanyCard from './CompanyCard';
 import AddCompanyDialog from './AddCompanyDialog';
-import AutoSuggestWrapper from '../../shared/AutoSuggestWrapper';
 import './Company.css';
 class CompanyDash extends React.Component {
     _isMounted = true;
