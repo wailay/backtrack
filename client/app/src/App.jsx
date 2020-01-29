@@ -1,7 +1,6 @@
 import React from 'react';
 import Dash from './features/dash/Dash';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {withRouter} from 'react-router-dom';
 import CompanyDash from './features/company/Company';
 import AppNavBar from './features/app-bar/AppNavBar';
 import withAuth from './utils/HOC/withAuth';

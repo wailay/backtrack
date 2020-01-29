@@ -86,11 +86,11 @@ class LoginForm extends React.Component {
         return(
             <div>
 
-                {/* <Snackbar open={alertOpen} autoHideDuration={alertDuration} onClose={this.handleAlertClose}>
+                <Snackbar open={alertOpen} autoHideDuration={alertDuration} onClose={this.handleAlertClose}>
                     <Alert onClose={this.handleAlertClose} severity="error">
                         {alertMessage}
                     </Alert>
-                </Snackbar> */}
+                </Snackbar>
                 <div className="div-container">
                 <div className="left">
                 </div>
