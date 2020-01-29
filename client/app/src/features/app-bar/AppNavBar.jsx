@@ -18,6 +18,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import BusinessIcon from '@material-ui/icons/Business';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 
 
@@ -216,6 +217,16 @@ class AppNavBar extends React.Component {
 
                    
                     {this.renderAuthButtons()} 
+
+                    <IconButton
+                    aria-label="github"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={() => window.open("github.com/wailay/backtrack", "_blank")}
+                    color="inherit"
+                    >
+                        <GitHubIcon />
+                    </IconButton>
                         
                     </ToolBar>
                 </AppBar>
