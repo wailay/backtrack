@@ -4,7 +4,7 @@ const dev = {
 }
 
 const prod = {
-    API_URL : "api"
+    API_URL : "https://trailmark.me/api",
 }
 
 const env = (process.env.NODE_ENV === 'development') ? dev : prod;
