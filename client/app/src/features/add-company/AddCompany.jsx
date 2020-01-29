@@ -47,11 +47,11 @@ class AddCompany extends React.Component {
         const {alertOpen} = this.state; 
         return(
             <div>
-                <Snackbar open={alertOpen} autoHideDuration={1000} onClose={this.handleAlertClose}>
+                {/* <Snackbar open={alertOpen} autoHideDuration={1000} onClose={this.handleAlertClose}>
                         <Alert onClose={this.handleAlertClose} severity="error">
                             {"Please submit the captcha :)"}
                         </Alert>
-                </Snackbar>
+                </Snackbar> */}
                 <div className="div-main">
                     <p>Hi, here you can send me an email if there is a company not listed and I will make sure to add it in the database. </p>
 

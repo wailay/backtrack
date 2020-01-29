@@ -71,6 +71,7 @@ class AppNavBar extends React.Component {
         this.setState({
             anchorEl : null,
         })
+        this.props.history.push('/login');
         this.props.logout();
     }
 

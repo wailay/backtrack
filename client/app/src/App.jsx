@@ -1,6 +1,6 @@
 import React from 'react';
 import Dash from './features/dash/Dash';
-import { BrowserRouter as Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import CompanyDash from './features/company/Company';
 import AppNavBar from './features/app-bar/AppNavBar';
@@ -16,6 +16,8 @@ import ReactGA from 'react-ga';
 import AddCompany from './features/add-company/AddCompany';
 ReactGA.initialize('UA-157220630-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
+
+
 class App extends React.Component {
     static contextType = AuthContext;
     constructor(props) {
@@ -41,7 +43,6 @@ class App extends React.Component {
     handleLogout = () => {
 
         userService.logout().then(res => {
-            this.props.history.push('/login');
             this.context.setAuthStatus(false);
         }).catch(err => {
             console.log('err ', err);
@@ -53,13 +54,14 @@ class App extends React.Component {
         return (
             <div>
                 
-                    <AppNavBar isUserLoggedIn={isLogged} logout={this.handleLogout}/>
+                    
                         <div>
+                            <Router>
+                            <AppNavBar isUserLoggedIn={isLogged} logout={this.handleLogout}/>
                             <Switch>   
-                            
-                                <Route exact path={["/", "/dash"]} component={withAuth(Dash)} />
                                 <Route exact path="/login" component={LoginForm} />
                                 <Route exact path="/signup" component={SignupForm} />
+                                <Route exact path={["/", "/dash"]} component={withAuth(Dash)} />
                                 <Route exact path="/profile" component={withAuth(Profile)} />
                                 <Route exact path="/stats" component={withAuth(Stats)} />
                                 <Route exact path="/company" component={withAuth(CompanyDash)} />
@@ -67,7 +69,7 @@ class App extends React.Component {
                                
 
                             </Switch>
-                           
+                            </Router>
                         </div>
             </div>
         );
@@ -75,4 +77,4 @@ class App extends React.Component {
 }
 
 
-export default withRouter(App);
+export default App;

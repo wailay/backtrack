@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { BrowserRouter as Router } from 'react-router-dom';
 import AuthProvider from './utils/context/AuthProvider';
 
 
@@ -24,9 +23,7 @@ const myTheme = createMuiTheme({
 ReactDOM.render(
     <AuthProvider>
     <ThemeProvider theme={myTheme}>
-        <Router>
             <App />
-        </Router>
     </ThemeProvider>
     </AuthProvider>
         

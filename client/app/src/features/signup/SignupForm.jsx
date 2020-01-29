@@ -85,11 +85,11 @@ class SignupForm extends React.Component {
         return(
             <div>
 
-                <Snackbar open={alertOpen} autoHideDuration={this.state.alertDuration} onClose={this.handleAlertClose}>
+                {/* <Snackbar open={alertOpen} autoHideDuration={this.state.alertDuration} onClose={this.handleAlertClose}>
                     <Alert onClose={this.handleAlertClose} severity="error">
                         {this.state.alertMessage}
                     </Alert>
-                </Snackbar>
+                </Snackbar> */}
 
                 <div className="div-container">
                 <div className="left">
