@@ -12,7 +12,7 @@ class CompanyCard extends React.Component {
         return(
             <div className="company-container" onClick={() => this.handleCompanyClick()}>
                 <div className="company-logo">
-                    <img style={{width : 32, height : 'auto'}}src={`https://${url}/favicon.ico`} alt="company logo" />
+                    <img style={{width : 32, height : 'auto'}} src={url} alt="company logo" />
                 </div>
                 <div className="company-name">
                     {name}

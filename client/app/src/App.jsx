@@ -12,6 +12,7 @@ import userService from './services/UserService';
 import {AuthContext} from './utils/context/AuthProvider';
 
 import ReactGA from 'react-ga';
+import AddCompany from './features/add-company/AddCompany';
 ReactGA.initialize('UA-157220630-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 class App extends React.Component {
@@ -39,7 +40,7 @@ class App extends React.Component {
     handleLogout = () => {
 
         userService.logout().then(res => {
-            this.props.history.push('/');
+            this.props.history.push('/login');
             this.context.setAuthStatus(false);
         }).catch(err => {
             console.log('err ', err);
@@ -55,12 +56,14 @@ class App extends React.Component {
                     
                         <div>
                             <Switch>
-                                <Route exact path="/dash" component={withAuth(Dash)} />
+                                
                                 <Route exact path="/company" component={withAuth(CompanyDash)} />
+                                <Route exact path="/company/add" component={withAuth(AddCompany)} />
+
                                 <Route exact path="/login" component={LoginForm} />
                                 <Route exact path="/signup" component={SignupForm} />
 
-                                <Route path="/" component={Home} />
+                                <Route exact path={["/", "/dash"]} component={withAuth(Dash)} />
 
                             </Switch>
                         </div>

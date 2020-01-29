@@ -6,6 +6,7 @@ import { Typography, Button } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import {AuthContext} from '../../utils/context/AuthProvider';
+import ReCAPTCHA from "react-google-recaptcha";
 
 class SignupForm extends React.Component {
     static contextType = AuthContext;
@@ -14,7 +15,9 @@ class SignupForm extends React.Component {
         this.state = {
             username : '',
             password : '',
-            alreadyRegistered : false,
+            alertOpen : false,
+            alertMessage : "",
+            alertDuration : 2000,
         }
     }
 
@@ -30,28 +33,39 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit = (event) => {
-        
-        const data = {
-            username : this.state.username,
-            password : this.state.password,
-        }
-        userService.signup(data).then(res => {
-            if (res.data.alreadyRegistered){
-                this.setState({
-                    alreadyRegistered : res.data.alreadyRegistered,
-                })
-            }else if(res.data.success){
-                userService.login(data).then(res => {
-                    this.context.setAuthStatus(res.data.success);
-                    this.props.history.push('/dash');
-                }).catch(err => {
-                    this.context.setAuthStatus(false);
-                });
-            }
-        }).catch(err => {
-            console.log('error when signing up ', err);
-        });
         event.preventDefault();
+        if(!this.state.notARobot){
+            this.setState({
+                alertOpen : true,
+                alertMessage : "Please Complete The Captcha !", 
+                alertDuration : 1000, 
+            });
+
+           
+        }else {
+            
+            const data = {
+                username : this.state.username,
+                password : this.state.password,
+            }
+            userService.signup(data).then(res => {
+                if (res.data.alreadyRegistered){
+                    this.setState({
+                        alertOpen : res.data.alreadyRegistered,
+                        alertMessage : "Username already registered !"
+                    })
+                }else if(res.data.success){
+                    userService.login(data).then(res => {
+                        this.context.setAuthStatus(res.data.success);
+                        this.props.history.push('/dash');
+                    }).catch(err => {
+                        this.context.setAuthStatus(false);
+                    });
+                }
+            }).catch(err => {
+                console.log('error when signing up ', err);
+            });
+    }
     }
 
     handleLoginDialogClose = () => {
@@ -59,21 +73,24 @@ class SignupForm extends React.Component {
             open: false,
         })
     }
-
+    onCaptchaSuccess = (value) => {
+        this.setState({notARobot : true});
+    }
     handleAlertClose = () => {
-        this.setState({alreadyRegistered : false});
+        this.setState({alertOpen : false,});
     }
 
     render(){
-        const {alreadyRegistered} = this.state;
+        const {alertOpen} = this.state;
         return(
             <div>
 
-                <Snackbar open={alreadyRegistered} autoHideDuration={2000} onClose={this.handleAlertClose}>
+                <Snackbar open={alertOpen} autoHideDuration={this.state.alertDuration} onClose={this.handleAlertClose}>
                     <Alert onClose={this.handleAlertClose} severity="error">
-                        Username already registered !
+                        {this.state.alertMessage}
                     </Alert>
                 </Snackbar>
+
                 <div className="div-container">
                 <div className="left">
                 </div>
@@ -83,9 +100,13 @@ class SignupForm extends React.Component {
                     Sign up
                 </Typography>
                     <form autoComplete="off" onSubmit={this.handleSubmit}>
+
+
                         
                         <TextField required id="outlined-user" label="Username" variant="outlined" name="username" onChange={this.handleChange}/>
-                        <TextField required id="outlined-pass" label="Password" variant="outlined" name="password" onChange={this.handleChange}/>
+                        <TextField required id="outlined-pass" label="Password" variant="outlined" name="password" onChange={this.handleChange} type="password"/>
+
+                       
                         <Button
                             type="submit"
                             fullWidth
@@ -96,6 +117,15 @@ class SignupForm extends React.Component {
                         >
                             Sign up
                         </Button>
+                        
+                        <ReCAPTCHA
+                            style={{margin : 15}}
+                            onChange={this.onCaptchaSuccess}
+                            sitekey="6LfktNMUAAAAANpgYtUZ7Uyk2clL_RK5edG00mUI"
+                            
+                        />
+
+                       
 
                     </form>
                 </div>

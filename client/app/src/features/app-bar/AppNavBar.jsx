@@ -9,7 +9,15 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu'
-
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import WorkIcon from '@material-ui/icons/Work';
+import BusinessIcon from '@material-ui/icons/Business';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 
 
 
@@ -65,7 +73,52 @@ class AppNavBar extends React.Component {
         })
         this.props.logout();
     }
-    
+
+    handleAddAppClick = () => {
+
+        this.props.history.push('/company');
+        this.handleDrawerClose();
+    }
+    handleAddCompClick = () => {
+        this.props.history.push('/company/add');
+        this.handleDrawerClose();
+
+    }
+
+    handleDashClick = () => {
+        this.props.history.push('/dash');
+        this.handleDrawerClose();
+
+    }
+    handleStatsClick = () => {
+        this.props.history.push('/stats');
+        this.handleDrawerClose();
+
+    }
+
+    handleProfileClick = () => {
+        this.props.history.push('/profile');
+        this.handleProfileMenuClose();
+
+    }
+
+    renderMenuButton() {
+        if(this.props.isUserLoggedIn){
+            return (
+            <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerOpen}
+                edge="start"
+                className="menu-button"
+                >
+                <MenuIcon />
+                </IconButton>
+                );
+        }else{
+            return null;
+        }
+    }
 
     renderAuthButtons() {
         const {isUserLoggedIn} = this.props;
@@ -89,7 +142,10 @@ class AppNavBar extends React.Component {
         else {
             const buttons = (
                      <Fragment>
+
+                
                 <div>
+
                     <IconButton
                     aria-label="account of current user"
                     aria-controls="menu-appbar"
@@ -108,7 +164,7 @@ class AppNavBar extends React.Component {
                     onClose={this.handleProfileMenuClose}
                     anchorReference={{vertical : 'bottom'}}
                 >
-                    <MenuItem onClick={this.handleProfileMenuClose}>Profile</MenuItem>
+                    <MenuItem onClick={this.handleProfileClick}>Profile</MenuItem>
                     <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
                 </Menu>
                 </div>
@@ -121,17 +177,37 @@ class AppNavBar extends React.Component {
     render(){
         return(
             <div className="bar-container">
+
+                <Drawer className="drawer" open={this.state.drawerOpen} onClose={this.handleDrawerClose}>
+
+                    <div className="list-action">
+                <List>
+
+                <ListItem button onClick={this.handleDashClick}>
+                    <ListItemIcon> <DashboardIcon /> </ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                </ListItem>
+                <ListItem button onClick={this.handleAddAppClick}>
+                    <ListItemIcon> <WorkIcon /> </ListItemIcon>
+                    <ListItemText primary="Add Application" />
+                </ListItem>
+                <ListItem button onClick={this.handleAddCompClick}>
+                    <ListItemIcon> <BusinessIcon /> </ListItemIcon>
+                    <ListItemText primary="Add Company" />
+                </ListItem>
+
+                <ListItem button onClick={this.handleStatsClick}>
+                    <ListItemIcon> <EqualizerIcon /> </ListItemIcon>
+                    <ListItemText primary="Applications Statistics" />
+                </ListItem>
+                </List>
+                </div>
+                </Drawer>
                 <AppBar position="static" className="bar">
                     <ToolBar>
-                                <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        // onClick={handleDrawerOpen}
-                        edge="start"
-                        className="menu-button"
-                        >
-                        <MenuIcon />
-                        </IconButton>
+                    
+
+                    {this.renderMenuButton()}
                         <TypoGraphy variant='inherit' className="bar-title" onClick={this.handleTitleClick}>
                             Backtrack
                         </TypoGraphy>

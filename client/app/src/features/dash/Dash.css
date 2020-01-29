@@ -1,7 +1,7 @@
 .flex-container {
     display: inline-flex;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 50px;
     justify-content: center;
     align-items: baseline;
 

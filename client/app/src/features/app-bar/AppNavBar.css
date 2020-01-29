@@ -44,3 +44,9 @@
     transition: 0.5s;
     background-color: rgb(90, 39, 39);
 }
+
+.list-action {
+    width: 270px;
+    margin-top: 20px;
+    
+}

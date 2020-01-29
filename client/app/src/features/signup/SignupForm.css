@@ -23,6 +23,11 @@
     
 }
 
+.captcha-box{
+    padding: 10;
+    margin: 40;
+}
+
 .left {
     width: 220px;
     height : auto;

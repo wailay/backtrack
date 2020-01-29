@@ -6,6 +6,8 @@ import { Typography, Button, Link } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import {AuthContext} from '../../utils/context/AuthProvider';
+import ReCAPTCHA from "react-google-recaptcha";
+
 class LoginForm extends React.Component {
     
     static contextType = AuthContext;
@@ -15,7 +17,10 @@ class LoginForm extends React.Component {
         this.state = {
             username : '',
             password : '',
-            open : false,
+            alertOpen : false,
+            alertMessage : "",
+            alertDuration : 2000,
+            notARobot : false,
         }
 
         
@@ -31,30 +36,44 @@ class LoginForm extends React.Component {
         
     }
     handleSubmit = (event) => {
-        
-        const data = {
-            username : this.state.username,
-            password : this.state.password,
-        }
-        userService.login(data).then(res => {
-            if (res.data.success) {
-                this.context.setAuthStatus(true);
-                this.props.history.push('/dash');
-            }
-        }).catch(err => {
-        this.setState({
-            open : true,
-        })
-        this.context.setAuthStatus(false);
-        
-    });
+
         event.preventDefault();
+        if(!this.state.notARobot){
+            this.setState({
+                alertOpen : true,
+                alertDuration : 1000,
+                alertMessage : "Please Complete The Captcha !",
+            })
+        }
+        else {
+            const data = {
+                username : this.state.username,
+                password : this.state.password,
+            }
+            userService.login(data).then(res => {
+                if (res.data.success) {
+                    this.context.setAuthStatus(true);
+                    this.props.history.push('/dash');
+                }
+            }).catch(err => {
+            this.setState({
+                alertOpen : true,
+                alertMessage : "Username or Password is incorrect :(",
+            })
+            this.context.setAuthStatus(false);
+            
+        });
+    }
     }
 
     handleAlertClose = () => {
         this.setState({
-            open : false,
+            alertOpen : false,
         })
+    }
+
+    onCaptchaSuccess = (value) => {
+        this.setState({notARobot : true});
     }
 
     componentDidMount(){
@@ -62,14 +81,14 @@ class LoginForm extends React.Component {
     }
     render(){
        
-        const {open} = this.state;
+        const {alertOpen, alertDuration, alertMessage} = this.state;
         
         return(
             <div>
 
-                <Snackbar open={open} autoHideDuration={2000} onClose={this.handleAlertClose}>
+                <Snackbar open={alertOpen} autoHideDuration={alertDuration} onClose={this.handleAlertClose}>
                     <Alert onClose={this.handleAlertClose} severity="error">
-                        Username or Password is incorrect
+                        {alertMessage}
                     </Alert>
                 </Snackbar>
                 <div className="div-container">
@@ -83,7 +102,7 @@ class LoginForm extends React.Component {
                     <form autoComplete="off" onSubmit={this.handleSubmit}>
                         
                         <TextField required id="outlined-user" label="Username" name="username" variant="outlined" onChange={this.handleChange} />
-                        <TextField required id="outlined-pass" label="Password" name="password" variant="outlined" onChange={this.handleChange} />
+                        <TextField required id="outlined-pass" label="Password" name="password" variant="outlined" onChange={this.handleChange}  type="password"/>
                         <Button
                             type="submit"
                             fullWidth
@@ -93,6 +112,13 @@ class LoginForm extends React.Component {
                         >
                             LogIn
                         </Button>
+
+                        <ReCAPTCHA
+                            style={{margin : 15}}
+                            onChange={this.onCaptchaSuccess}
+                            sitekey="6LfktNMUAAAAANpgYtUZ7Uyk2clL_RK5edG00mUI"
+                            
+                        />
 
                         <div className="no-account">
                             <div>

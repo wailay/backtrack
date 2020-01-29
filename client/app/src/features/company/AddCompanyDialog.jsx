@@ -101,7 +101,7 @@ class AppCompanyDialog extends React.Component {
                                 <div className="label">
                                     Location
                                 </div>
-                                <AutoSuggestWrapper sendValueToParent={this.getAutoSuggestValue} locations={cities} />
+                                <AutoSuggestWrapper sendValueToParent={this.getAutoSuggestValue} data={cities} placeholder="Search for locations..." />
                             </div>
                         </div>
                     </DialogContent>

@@ -1,0 +1,16 @@
+.div-main{
+    margin: 20px;
+    
+}
+
+.form-company {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+.submit-button {
+    padding: 10px;
+    margin: 100px;
+    /* width: 200px;
+    height: 60px; */
+}

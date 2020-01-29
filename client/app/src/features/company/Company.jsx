@@ -3,6 +3,7 @@ import companyService from '../../services/CompanyService';
 import LoadingSpinner from '../../shared/LoadingSpinner';
 import CompanyCard from './CompanyCard';
 import AddCompanyDialog from './AddCompanyDialog';
+import AutoSuggestWrapper from '../../shared/AutoSuggestWrapper';
 import './Company.css';
 class CompanyDash extends React.Component {
     _isMounted = true;
@@ -52,7 +53,7 @@ class CompanyDash extends React.Component {
     }
     render(){
         const {companies, loading, dialogOpen} = this.state;
-        
+        console.log(companies);
         const companiesCard = companies.map(company => 
                 
                 <CompanyCard key={company._id} company={company} onClick={() => this.handleAddCompanyClick(company)}/>);
@@ -64,7 +65,7 @@ class CompanyDash extends React.Component {
             <div>
                 <div className="search">
                 <form >
-                    <input type="text" placeholder="Search..." onChange={this.handleSearch}/>
+                    <input disabled type="text" placeholder="Search not implemented yet..." onChange={this.handleSearch}/>
                 </form>
                 </div>
 

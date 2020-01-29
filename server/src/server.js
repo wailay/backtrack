@@ -10,10 +10,17 @@ var auth_route = require('./routers/auth.router');
 var mongoose = require('./db');
 var errorHandler = require('./services/error_handler');
 
+const origin = true;
+const cookie = { secure: false, httpOnly: false };
 
 var cors = require('cors');
+
+if(process.env.NODE_ENV === "production"){
+    origin = 'https://trailmark.me';
+    cookie = {secure: true, httpOnly: true };
+}
 var corsOptions = {
-    origin: 'https://trailmark.me',
+    origin: origin,
     optionsSuccessStatus: 200,
     credentials: true,
     methods: ['GET', 'POST', 'DELETE'],
@@ -25,7 +32,7 @@ app.use(session({
     resave : false,
     saveUninitialized : false,
     store: new MongoStore({ mongooseConnection: mongoose.connection, ttl : 2 * 24 * 60 * 60, }),
-    cookie: { secure: false, httpOnly: false }, // !to be removed on production this enable http cookies
+    cookie: cookie,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -34,24 +41,11 @@ app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
  
-
 //routes declaration
 app.use('/api/user', user_route);
 app.use('/api/company', company_route);
 app.use('/api/auth', auth_route);
 app.use(errorHandler);
-
-app.get('/api', async (req, res) => {
-    console.log(req.user);
-     res.send("hello");
- 
- });
-
- app.get('/api/fail', async (req, res) => {
-     console.log('fail');
-     res.send("fail"); 
- });
-
 
 
 app.listen(process.env.PORT, () => {

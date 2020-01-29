@@ -82,7 +82,7 @@ class Dash extends React.Component {
        
         return (
             <div>
-                DASHHh
+                
              <ReactCSSTransitionGroup
                 transitionName="application"
                 transitionAppear={true}

@@ -18,8 +18,8 @@ class AutoSuggestWrapper extends React.Component {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
         
-        return inputLength === 0 ? [] : this.props.locations.filter(loc => 
-            loc.value.toLowerCase().slice(0, inputLength) === inputValue
+        return inputLength === 0 ? [] : this.props.data.filter(data => 
+            data.value.toLowerCase().slice(0, inputLength) === inputValue
         );
     };
     
@@ -70,7 +70,7 @@ class AutoSuggestWrapper extends React.Component {
     render(){
         const {value, suggestions } = this.state;
         const inputProps = {
-            placeholder : 'Search for a location...',
+            placeholder : this.props.placeholder,
             value,
             onChange : this.onChange,
         };
