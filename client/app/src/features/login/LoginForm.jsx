@@ -97,8 +97,13 @@ class LoginForm extends React.Component {
                 
                 <div className="login-container">
                 <Typography variant="h4" gutterBottom>
-                    Log in
+                    Log in 
                 </Typography>
+
+                <Typography variant="body" gutterBottom>
+                    You can use this dummy account for testing (username : test | pass : test)
+                </Typography>
+
                     <form autoComplete="off" onSubmit={this.handleSubmit}>
                         
                         <TextField required id="outlined-user" label="Username" name="username" variant="outlined" onChange={this.handleChange} />
