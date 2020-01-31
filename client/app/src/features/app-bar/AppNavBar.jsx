@@ -222,7 +222,7 @@ class AppNavBar extends React.Component {
                     aria-label="github"
                     aria-controls="menu-appbar"
                     aria-haspopup="true"
-                    onClick={() => window.open("github.com/wailay/backtrack", "_blank")}
+                    onClick={() => window.open("https://github.com/wailay/backtrack", "_blank")}
                     color="inherit"
                     >
                         <GitHubIcon />
