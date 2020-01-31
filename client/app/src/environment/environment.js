@@ -1,6 +1,6 @@
 
 const dev = {
-    API_URL : "http://192.168.2.19:5000/api"
+    API_URL : "http://localhost:5000/api"
 }
 
 const prod = {
