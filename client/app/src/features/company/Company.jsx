@@ -3,17 +3,37 @@ import companyService from '../../services/CompanyService';
 import LoadingSpinner from '../../shared/LoadingSpinner';
 import CompanyCard from './CompanyCard';
 import AddCompanyDialog from './AddCompanyDialog';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Fuse from 'fuse.js';
 import './Company.css';
+
+var fuse;
 class CompanyDash extends React.Component {
     _isMounted = true;
     constructor(props){
         super(props);
         this.state = {
             companies : [],
+            unchangedCompanies : [],
             currentCompany : {},
             loading : true,
             dialogOpen : false,
         }
+    }
+
+    initFuzzySearch(){
+        var options = {
+            threshold: 0.3,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [
+                "name"
+            ]
+          };
+
+          fuse = new Fuse(this.state.companies, options);
     }
     componentDidMount(){
         this._isMounted = true;
@@ -21,8 +41,12 @@ class CompanyDash extends React.Component {
             if(this._isMounted){
             this.setState({
                 companies : res.data,
+                unchangedCompanies : res.data,
                 loading : false,
             });
+
+            this.initFuzzySearch();
+
         }
         }).catch(err => {
             console.log("error when fetching companies ", err);
@@ -33,8 +57,23 @@ class CompanyDash extends React.Component {
         this._isMounted = false;
     }
 
-    handleSearch(event) {
-        console.log(event.target)
+    handleSearch = (event) => {
+        // console.log(event.target.value);/
+        var newSearch = fuse.search(event.target.value);
+        if(newSearch.length > 0){
+            console.log("yoooo" ,newSearch);
+            this.setState({
+                companies : newSearch,
+            })
+
+
+        }else{
+            this.setState({
+                    companies : this.state.unchangedCompanies,
+                })
+        }
+        
+
     }
 
     handleAddCompanyClick(company) {
@@ -64,14 +103,29 @@ class CompanyDash extends React.Component {
             <div>
                 <div className="search">
                 <form >
-                    <input disabled type="text" placeholder="Search not implemented yet..." onChange={this.handleSearch}/>
+                    <input type="text" placeholder="Search company..." onChange={this.handleSearch}/>
                 </form>
                 </div>
 
-                <div className="companies-container">
+
+                <ReactCSSTransitionGroup
+                transitionName="company"
+                transitionAppear={true}
+                transitionAppearTimeout={2000}
+                transitionEnter={false}
+                transitionLeave={false}>
+
+                <ReactCSSTransitionGroup
+                    className="companies-container"
+                    transitionName="company"
+                    transitionEnter={false}
+                    transitionLeaveTimeout={300}
+                >
                 {companiesCard}
                 
-                </div>
+                </ReactCSSTransitionGroup>
+
+                </ReactCSSTransitionGroup>
                 
             <AddCompanyDialog open={dialogOpen} onClick={this.handleCompanyDialogClose} company={this.state.currentCompany} />
                 
