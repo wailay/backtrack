@@ -75,7 +75,6 @@ class CompanyDash extends React.Component {
         
 
     }
-
     handleAddCompanyClick(company) {
         this.setState({
             dialogOpen : true,
