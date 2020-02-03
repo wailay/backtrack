@@ -6,8 +6,9 @@ import AddCompanyDialog from './AddCompanyDialog';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Fuse from 'fuse.js';
 import './Company.css';
-
+import Chart from 'chart.js';
 var fuse;
+
 class CompanyDash extends React.Component {
     _isMounted = true;
     constructor(props){
@@ -90,7 +91,7 @@ class CompanyDash extends React.Component {
     }
     render(){
         const {companies, loading, dialogOpen} = this.state;
-        console.log(companies);
+        
         const companiesCard = companies.map(company => 
                 
                 <CompanyCard key={company._id} company={company} onClick={() => this.handleAddCompanyClick(company)}/>);
@@ -100,6 +101,7 @@ class CompanyDash extends React.Component {
         
         return(
             <div>
+                
                 <div className="search">
                 <form >
                     <input type="text" placeholder="Search company..." onChange={this.handleSearch}/>

@@ -6,6 +6,17 @@
     
 }
 
+.status-bar{
+    display: flex;
+}
+.quick-stats{
+    text-align: center;
+    margin: auto;
+    border: black 1px solid;
+    /* margin-bottom: 100px; */
+}
+
+
 .centered {
     position: fixed;
     top : 50%;
