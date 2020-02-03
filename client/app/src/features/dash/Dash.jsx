@@ -16,8 +16,12 @@ class Dash extends React.Component {
     }
 
     componentDidMount() {
+        
         this._isMounted = true;
+
         console.log('comp mounted dash');
+        this.renderChart();
+        
         appService.getApplications().then(res => {
 
             if(this._isMounted){
@@ -36,6 +40,10 @@ class Dash extends React.Component {
         this._isMounted = false;
     }
 
+    renderChart() {
+        var ctx = document.getElementById("dStats");
+        console.log("ctx" , ctx);
+    }
     handleDeleteApp(app){
         
         let { _id } = app;
@@ -70,7 +78,6 @@ class Dash extends React.Component {
 
     render() {
         const {applications, loading} = this.state;
-        console.log(applications);
         const applicationDiv = applications.map((app) => 
             <AppCard key={app._id} application={app} onClick={() => this.handleDeleteApp(app)}/>
         ); 
@@ -82,7 +89,11 @@ class Dash extends React.Component {
        
         return (
             <div>
-                
+
+                {/* <div className="quick-stats">
+                    <canvas id="dStats" width="10" height="10"></canvas>
+                </div> */}
+
              <ReactCSSTransitionGroup
                 transitionName="application"
                 transitionAppear={true}

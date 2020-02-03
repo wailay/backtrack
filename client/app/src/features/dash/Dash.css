@@ -7,6 +7,13 @@
 
 }
 
+.quick-stats{
+    text-align: center;
+    margin: auto;
+    border: black 1px solid;
+    /* margin-bottom: 100px; */
+}
+
 .add-container {
     
     text-align: center;
