@@ -13,6 +13,7 @@ import {AuthContext} from './utils/context/AuthProvider';
 
 import ReactGA from 'react-ga';
 import AddCompany from './features/add-company/AddCompany';
+import Home from './features/home/Home';
 ReactGA.initialize('UA-157220630-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -60,7 +61,8 @@ class App extends React.Component {
                             <Switch>   
                                 <Route exact path="/login" component={LoginForm} />
                                 <Route exact path="/signup" component={SignupForm} />
-                                <Route exact path={["/", "/dash"]} component={withAuth(Dash)} />
+                                <Route exact path={["/","/home"]} component={Home} />
+                                <Route exact path="/dash" component={withAuth(Dash)} />
                                 <Route exact path="/profile" component={withAuth(Profile)} />
                                 <Route exact path="/stats" component={withAuth(Stats)} />
                                 <Route exact path="/company" component={withAuth(CompanyDash)} />
