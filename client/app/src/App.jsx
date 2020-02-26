@@ -4,18 +4,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CompanyDash from './features/company/Company';
 import AppNavBar from './features/app-bar/AppNavBar';
 import withAuth from './utils/HOC/withAuth';
+import withTracker from './utils/HOC/withTracker';
 import LoginForm from './features/login/LoginForm';
 import SignupForm from './features/signup/SignupForm';
 import Profile from './features/profile/Profile';
 import Stats from './features/stats/Stats';
 import userService from './services/UserService';
 import {AuthContext} from './utils/context/AuthProvider';
-
-import ReactGA from 'react-ga';
 import AddCompany from './features/add-company/AddCompany';
 import Home from './features/home/Home';
-ReactGA.initialize('UA-157220630-1');
-ReactGA.pageview(window.location.pathname + window.location.search);
+
 
 
 class App extends React.Component {
@@ -28,7 +26,7 @@ class App extends React.Component {
             alertOpen : false,
         }
     }
-
+    
     componentDidMount(){
 
         userService.checkAuth().then(res => {
@@ -59,14 +57,14 @@ class App extends React.Component {
                             <Router>
                             <AppNavBar isUserLoggedIn={isLogged} logout={this.handleLogout}/>
                             <Switch>   
-                                <Route exact path="/login" component={LoginForm} />
-                                <Route exact path="/signup" component={SignupForm} />
-                                <Route exact path={["/","/home"]} component={Home} />
-                                <Route exact path="/dash" component={withAuth(Dash)} />
-                                <Route exact path="/profile" component={withAuth(Profile)} />
-                                <Route exact path="/stats" component={withAuth(Stats)} />
-                                <Route exact path="/company" component={withAuth(CompanyDash)} />
-                                <Route exact path="/company/add" component={withAuth(AddCompany)} />
+                                <Route exact path="/login" component={withTracker(LoginForm)} />
+                                <Route exact path="/signup" component={withTracker(SignupForm)} />
+                                <Route exact path={["/","/home"]} component={withTracker(Home)} />
+                                <Route exact path="/dash" component={withTracker(withAuth(Dash))} />
+                                <Route exact path="/profile" component={withTracker(withAuth(Profile))} />
+                                <Route exact path="/stats" component={withTracker(withAuth(Stats))} />
+                                <Route exact path="/company" component={withTracker(withAuth(CompanyDash))} />
+                                <Route exact path="/company/add" component={withTracker(withAuth(AddCompany))} />
                                
 
                             </Switch>
