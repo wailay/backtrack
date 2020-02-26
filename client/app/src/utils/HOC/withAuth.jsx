@@ -15,13 +15,11 @@ function withAuth(WrappedComponent){
 
     componentDidMount(){
         userService.checkAuth().then(res => {
-            console.log('checking auth ', res);
             this.setState({
                 isLoggedIn : res.data.isLoggedIn,
                 loading : false,
             })
         }).catch(err => {
-            console.log("error when checking auth, ", err);
             this.setState({
                 isLoggedIn : false,
                 loading : false,

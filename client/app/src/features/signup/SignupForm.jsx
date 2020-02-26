@@ -25,7 +25,6 @@ class SignupForm extends React.Component {
     handleChange = (event) => {
         let value = event.target.value;
         
-        console.log(event.target.name);
         this.setState({
             ...this.state,
             [event.target.name]: value,
@@ -63,7 +62,7 @@ class SignupForm extends React.Component {
                     });
                 }
             }).catch(err => {
-                console.log('error when signing up ', err);
+                console.log('error');
             });
     }
     }

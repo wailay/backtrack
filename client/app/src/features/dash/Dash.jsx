@@ -19,14 +19,11 @@ class Dash extends React.Component {
         
         this._isMounted = true;
 
-        console.log('comp mounted dash');
         this.renderChart();
         
         appService.getApplications().then(res => {
 
             if(this._isMounted){
-            console.log('getting data ', res.data);
-            
                 this.setState({
                 applications: res.data,
                 loading : false,
@@ -42,7 +39,7 @@ class Dash extends React.Component {
 
     renderChart() {
         var ctx = document.getElementById("dStats");
-        console.log("ctx" , ctx);
+        
     }
     handleDeleteApp(app){
         
@@ -55,14 +52,12 @@ class Dash extends React.Component {
                 applications : applications,
             })
         }).catch(err => {
-            console.log('Error happened when deleting application ', err);
+            console.log('Error');
         });
         
     }
 
-    handleAddCompany(){
-        console.log('Add company');
-    }   
+    
    
     renderNoApplications(){
         return (

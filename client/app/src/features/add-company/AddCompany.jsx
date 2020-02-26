@@ -24,13 +24,6 @@ class AddCompany extends React.Component {
 
     handleChange = (event) => {
         let value = event.target.value;
-        
-        console.log(event.target.name);
-        this.setState({
-            ...this.state,
-            [event.target.name]: value,
-        })
-
     }
     handleSubmit = () => {
         if(!this.state.notARobot){

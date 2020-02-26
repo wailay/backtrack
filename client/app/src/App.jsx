@@ -20,7 +20,6 @@ class App extends React.Component {
     static contextType = AuthContext;
     constructor(props) {
         super(props);
-        console.log("constructor of Apps");
         this.state ={
             isUserLoggedIn : false,
             alertOpen : false,
@@ -30,7 +29,6 @@ class App extends React.Component {
     componentDidMount(){
 
         userService.checkAuth().then(res => {
-            console.log('user seems to be logged in');
             this.context.setAuthStatus(res.data.isLoggedIn);
         }).catch(err => {
             this.context.setAuthStatus(false);
@@ -43,7 +41,7 @@ class App extends React.Component {
         userService.logout().then(res => {
             this.context.setAuthStatus(false);
         }).catch(err => {
-            console.log('err ', err);
+            console.log('error');
         })
     }
 

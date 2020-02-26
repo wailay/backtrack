@@ -30,9 +30,6 @@ class AppCompanyDialog extends React.Component {
         this.props.onClick();
     }
 
-    componentWillUnmount() {
-        console.log('dialog unmounted');
-    }
 
     getAutoSuggestValue = (value) => {
         this.setState({
@@ -59,11 +56,11 @@ class AppCompanyDialog extends React.Component {
         };
 
         appService.addApplication(data).then(res => {
-            console.log(res.data);
+            
             //Close the dialog
             this.handleDialogClose();
         }).catch(err => {
-            console.log("an error happened while adding an apps ", err);
+            console.log("error");
         });
 
     }

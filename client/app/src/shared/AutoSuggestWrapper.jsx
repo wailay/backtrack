@@ -61,7 +61,7 @@ class AutoSuggestWrapper extends React.Component {
     };
 
     onSuggestionSelected = (event, {suggestionValue}) => {
-        console.log(suggestionValue);
+        
         this.props.sendValueToParent(suggestionValue); 
     };
 

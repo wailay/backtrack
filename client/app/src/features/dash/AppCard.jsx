@@ -24,7 +24,6 @@ class AppCard extends React.Component {
     changeAppStatus(newStatus) {
         let { status } = this.props.application;
         let newAppContainerClass = "";
-        console.log('status', status, newStatus);
         if (newStatus === status) {
             newStatus = 'Pending';
             newAppContainerClass = `app-container Pending-body`
@@ -42,7 +41,7 @@ class AppCard extends React.Component {
                 appContainerClass: newAppContainerClass,
             })
         }).catch(err => {
-            console.log('something bad happened in appcard.jsx', err);
+            console.log('something bad happened');
         })
     }
     handleCollapseClick = (event) => {

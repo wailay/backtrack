@@ -50,7 +50,7 @@ class CompanyDash extends React.Component {
 
         }
         }).catch(err => {
-            console.log("error when fetching companies ", err);
+            console.log("error ");
         })
     }
 
@@ -59,10 +59,9 @@ class CompanyDash extends React.Component {
     }
 
     handleSearch = (event) => {
-        // console.log(event.target.value);/
         var newSearch = fuse.search(event.target.value);
         if(newSearch.length > 0){
-            console.log("yoooo" ,newSearch);
+            
             this.setState({
                 companies : newSearch,
             })
@@ -84,7 +83,7 @@ class CompanyDash extends React.Component {
     }
 
     handleCompanyDialogClose = () => {
-        console.log("closing dialog");
+        
         this.setState({
             dialogOpen : false,
         })
